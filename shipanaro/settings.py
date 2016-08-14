@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+# from django.utils.translation import ugettext as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -78,6 +79,17 @@ DATABASES = {
     }
 }
 
+# Password storage
+# https://docs.djangoproject.com/es/1.10/topics/auth/passwords/#auth-password-storage
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'shipanaro.ldap.LDAPSHA1PasswordHasher',
+    'django.contrib.auth.hashers.UnsaltedSHA1PasswordHasher',
+    'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher'
+]
+
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -118,3 +130,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
+
+# Must follow Django field's choices structure.
+MEMBERSHIP_LEVELS = (
+    (0, 'Anonymous'),
+    (100, 'Member'),
+)

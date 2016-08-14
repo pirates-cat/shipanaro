@@ -1,1 +1,7 @@
-Django==1.9.8
+Babel==2.3.4
+Django==1.10
+django-phonenumber-field==1.1.0
+phonenumberslite==7.4.5
+pytz==2016.6.1
+yapf==0.11.0
+django-hashers-passlib==0.3
