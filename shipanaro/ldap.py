@@ -17,7 +17,6 @@ class LDAPSHA1PasswordHasher(SHA1PasswordHasher):
 
 
 class ldap_salted_sha1(Converter):
-
     def from_orig(self, encoded):
         digest_salt = b64decode(encoded[6:])
         digest = str(hexlify(digest_salt[:20]), 'utf-8')

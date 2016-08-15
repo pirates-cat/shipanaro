@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shipanaro',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -83,7 +85,6 @@ DATABASES = {
 # https://docs.djangoproject.com/es/1.10/topics/auth/passwords/#auth-password-storage
 
 PASSWORD_HASHERS = [
-    'django.contrib.auth.hashers.Argon2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'shipanaro.ldap.LDAPSHA1PasswordHasher',
     'django.contrib.auth.hashers.UnsaltedSHA1PasswordHasher',
@@ -131,10 +132,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Django REST Framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser'
+    ]
+}
+
 PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 
 # Must follow Django field's choices structure.
-MEMBERSHIP_LEVELS = (
-    (0, 'Anonymous'),
-    (100, 'Member'),
-)
+MEMBERSHIP_LEVELS = ((0, 'Anonymous'),
+                     (100, 'Member'), )
