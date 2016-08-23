@@ -86,7 +86,7 @@ DATABASES = {
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'shipanaro.ldap.LDAPSHA1PasswordHasher',
+    'shipanaro.hashers.LDAPSHA1PasswordHasher',
     'django.contrib.auth.hashers.UnsaltedSHA1PasswordHasher',
     'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher'
 ]
