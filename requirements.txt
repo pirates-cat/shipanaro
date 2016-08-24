@@ -6,3 +6,4 @@ pytz==2016.6.1
 yapf==0.11.0
 django-hashers-passlib==0.3
 djangorestframework==3.4.4
+django-jet==0.9.1

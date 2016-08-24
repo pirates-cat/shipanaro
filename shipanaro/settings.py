@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -136,12 +137,12 @@ STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAdminUser'
+        'shipanaro.api.permissions.IsAPIGroupUser'
     ]
 }
 
 PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 
-# Must follow Django field's choices structure.
-MEMBERSHIP_LEVELS = ((0, 'Anonymous'),
-                     (100, 'Member'), )
+JET_SIDE_MENU_COMPACT = True
+
+SHIPANARO_API_GROUP = 'system'

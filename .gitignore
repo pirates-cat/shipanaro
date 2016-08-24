@@ -62,4 +62,4 @@ docs/_build/
 target/
 
 db.sqlite3
-pirata.cat/
+ship-*/
