@@ -51,8 +51,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='membership',
             name='assigned_sex',
-            field=models.IntegerField(choices=[(1, 'Male'), (2, 'Female'), (
-                9, 'Not Applicable')]), ),
+            field=models.IntegerField(choices=[(1, 'Male'), (2, 'Female'),
+                                               (9, 'Not Applicable')]), ),
         migrations.AlterField(
             model_name='membership',
             name='birthday',

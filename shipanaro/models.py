@@ -45,6 +45,7 @@ class Membership(models.Model):
     notes = models.TextField(blank=True)
     contact_id = models.CharField(max_length=9)
     date_left = models.DateField(null=True)
+    drop_out = models.BooleanField(default=False)
     # TODO comments (by @user at @time)
     # TODO logging
     # TODO gamification
