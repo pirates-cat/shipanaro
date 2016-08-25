@@ -7,24 +7,20 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('shipanaro', '0003_auto_20160824_0011'),
-    ]
+    dependencies = [('shipanaro', '0003_auto_20160824_0011'), ]
 
     operations = [
         migrations.AlterField(
             model_name='membership',
             name='level',
-            field=models.IntegerField(),
-        ),
+            field=models.IntegerField(), ),
         migrations.AlterField(
             model_name='membership',
             name='phone',
-            field=models.CharField(max_length=20),
-        ),
+            field=models.CharField(max_length=20), ),
         migrations.AlterField(
             model_name='membership',
             name='phone_2',
-            field=models.CharField(blank=True, max_length=20),
-        ),
+            field=models.CharField(
+                blank=True, max_length=20), ),
     ]

@@ -56,8 +56,7 @@ SUBSCRIPTION_SERVICES = (('newsletter', _('Newsletter')), )
 class Subscription(models.Model):
     member = models.ForeignKey(
         Membership, on_delete=models.CASCADE, related_name='subscriptions')
-    service = models.CharField(
-        max_length=20, choices=SUBSCRIPTION_SERVICES)
+    service = models.CharField(max_length=20, choices=SUBSCRIPTION_SERVICES)
     endpoint = models.TextField()
 
 

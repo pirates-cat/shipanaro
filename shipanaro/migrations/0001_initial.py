@@ -34,8 +34,8 @@ class Migration(migrations.Migration):
                     choices=[(1, 'Male'), (2, 'Female'), (9, 'Intersexual')])),
                 ('gender', models.IntegerField(
                     blank=True,
-                    choices=[(1, 'Male'), (2, 'Female'), (
-                        9, 'Gender non-conforming')])),
+                    choices=[(1, 'Male'), (2, 'Female'),
+                             (9, 'Gender non-conforming')])),
                 ('birthday', models.DateField(blank=True)),
                 ('nationality', models.CharField(
                     blank=True, max_length=20)),

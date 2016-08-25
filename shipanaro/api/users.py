@@ -7,8 +7,8 @@ from rest_framework import serializers, viewsets, status, filters
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     queryset = User.objects.all()
-    filter_backends = (filters.SearchFilter,)
-    search_fields = ('=username',)
+    filter_backends = (filters.SearchFilter, )
+    search_fields = ('=username', )
 
     class Meta:
         model = User

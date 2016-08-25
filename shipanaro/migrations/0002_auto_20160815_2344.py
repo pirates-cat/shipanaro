@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
             name='assigned_sex',
             field=models.IntegerField(
                 blank=True,
-                choices=[(1, 'Male'), (2, 'Female'), (9, 'Not Applicable')
-                         ]), ),
+                choices=[(1, 'Male'), (2, 'Female'),
+                         (9, 'Not Applicable')]), ),
     ]
