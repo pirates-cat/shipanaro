@@ -62,4 +62,7 @@ docs/_build/
 target/
 
 db.sqlite3
-ship-*/
+ship_*/
+
+static/
+.*
