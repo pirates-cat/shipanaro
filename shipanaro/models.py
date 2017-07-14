@@ -29,7 +29,6 @@ NIDS = ((7240, _('Passport')),
 class Membership(models.Model):
     user = models.OneToOneField(User)
     uid = models.IntegerField()
-    level = models.IntegerField()
     assigned_sex = models.IntegerField(choices=SEXES)
     gender = models.IntegerField(choices=GENDERS)
     birthday = models.DateField()
@@ -44,7 +43,7 @@ class Membership(models.Model):
     phone_2 = models.CharField(max_length=20, blank=True)
     notes = models.TextField(blank=True)
     contact_id = models.CharField(max_length=9)
-    date_left = models.DateField(null=True)
+    date_left = models.DateField(null=True, blank=True)
     drop_out = models.BooleanField(default=False)
     # TODO comments (by @user at @time)
     # TODO logging

@@ -1,5 +1,7 @@
+from django_admin_listfilter_dropdown.filters import DropdownFilter
 from django.contrib import admin, auth
 from django.utils.translation import ugettext_lazy as _
+from rangefilter.filter import DateRangeFilter
 from shipanaro import models
 
 
@@ -31,17 +33,17 @@ class MembershipAdmin(ShipanaroModelAdmin):
         'user__first_name',
         'user__username',
         'user__email',
-        # 'birthday',
+        'birthday',
         # 'assigned_sex',
-        # 'gender',
+        'gender',
         'phone',
         # 'phone_2',
         # 'user__date_joined',
         # 'date_left',
         'nid',
         # 'nid_type',
-        # 'province',
-        # 'city',
+        'province',
+        'city',
         # 'address',
         # 'nationality',
         # 'notes',
@@ -49,7 +51,10 @@ class MembershipAdmin(ShipanaroModelAdmin):
         'drop_out', )
     ordering = ('-uid', )
     list_filter = ('drop_out',
-                   'postal_code', )
+                   ('postal_code', DropdownFilter),
+                   'gender',
+                   ('birthday', DateRangeFilter),
+                   'province', )
     search_fields = ('user__last_name',
                      'user__first_name',
                      'user__username',

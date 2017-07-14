@@ -8,7 +8,6 @@ router.register(r'users', UserViewSet)
 
 urlpatterns = [
     # url(r'^user/', include('django.contrib.auth.urls')),
-    url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     # Browsable API disabled.
