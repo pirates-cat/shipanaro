@@ -25,7 +25,6 @@ NIDS = ((7240, _('Passport')),
         (0, _('Unknown')), )
 
 
-# TODO Subscription <-> ***Contact model*** <-> Membership
 class Membership(models.Model):
     user = models.OneToOneField(User)
     uid = models.IntegerField()
@@ -45,9 +44,22 @@ class Membership(models.Model):
     contact_id = models.CharField(max_length=9)
     date_left = models.DateField(null=True, blank=True)
     drop_out = models.BooleanField(default=False)
-    # TODO comments (by @user at @time)
     # TODO logging
     # TODO gamification
+
+    def save(self, *args, **kwargs):
+        super(Membership, self).save(*args, **kwargs)
+        if drop_out:
+            subs = Subscription.objects.filter(member=self)
+            for sub in subs:
+                sub.delete()
+        else:
+            sub = Subscription(
+                member=self,
+                service='newsletter',
+                endpoint=self.user.email,
+            )
+            sub.save()
 
 
 SUBSCRIPTION_SERVICES = (('newsletter', _('Newsletter')), )
@@ -59,6 +71,10 @@ class Subscription(models.Model):
     service = models.CharField(max_length=20, choices=SUBSCRIPTION_SERVICES)
     endpoint = models.TextField()
 
+    def __str__(self):
+        return '%s:%s' % (self.service, self.endpoint)
+
 
 class Nexus(models.Model):
     group = models.OneToOneField(Group)
+

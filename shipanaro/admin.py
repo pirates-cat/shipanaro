@@ -102,3 +102,10 @@ class MembershipAdmin(ShipanaroModelAdmin):
 
 
 admin.site.register(models.Membership, MembershipAdmin)
+
+
+class SubscriptionAdmin(ShipanaroModelAdmin):
+    search_fields = ('endpoint',)
+
+
+admin.site.register(models.Subscription, SubscriptionAdmin)

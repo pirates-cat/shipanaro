@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_admin_listfilter_dropdown',
     'rangefilter',
+    'export_action',
     'shipanaro',
     'rest_framework',
 ]
