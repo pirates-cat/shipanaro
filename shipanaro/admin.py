@@ -53,6 +53,7 @@ class MembershipAdmin(ShipanaroModelAdmin):
     list_filter = ('drop_out',
                    ('postal_code', DropdownFilter),
                    'gender',
+                   ('user__date_joined', DateRangeFilter),
                    ('birthday', DateRangeFilter),
                    'province', )
     search_fields = ('user__last_name',

@@ -49,7 +49,7 @@ class Membership(models.Model):
 
     def save(self, *args, **kwargs):
         super(Membership, self).save(*args, **kwargs)
-        if drop_out:
+        if self.drop_out:
             subs = Subscription.objects.filter(member=self)
             for sub in subs:
                 sub.delete()
