@@ -3,10 +3,9 @@
 ## Quick install
 
 ```bash
-apt-get install python3{,-pip}
-pip install virtualenvwrapper
+apt-get install python3{,-pip} libldap2-dev libsasl2-dev
+pip3 install pipenv
 cd $SHIPANARO_HOME
-virtualenv .env
-source .env/bin/activate
-pip install -r requirements.txt
+pipenv shell
+pipenv install
 ```

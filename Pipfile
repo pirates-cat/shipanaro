@@ -1,0 +1,23 @@
+[[source]]
+verify_ssl = true
+url = "https://pypi.org/simple"
+name = "pypi"
+
+[requires]
+python_version = "3.5"
+
+[packages]
+Django = "==1.11.13"
+djangorestframework = "==3.8.2"
+django-admin-list-filter-dropdown = "==1.0.1"
+django-admin-rangefilter = "==0.3.6"
+django-export-action = "==0.1.1"
+django-hashers-passlib = "==0.4"
+django-phonenumber-field = "==2.0.0"
+"psycopg2-binary" = "==2.7.4"
+pytz = "==2018.4"
+six = "*"
+
+[dev-packages]
+"Fabric3" = "*"
+yapf = "*"

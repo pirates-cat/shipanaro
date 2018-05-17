@@ -10,19 +10,24 @@ SEXES = (
     # (0, 'Not known'),
     (1, _('Male')),
     (2, _('Female')),
-    (9, _('Not Applicable')), )
+    (9, _('Not Applicable')),
+)
 
 # Based on ISO 5218 and Best Practices for Asking Questions to Identify
 # Transgender and Other Gender Minority Respondents on Population-Based
 # Surveys.
-GENDERS = ((1, _('Male')),
-           (2, _('Female')),
-           (9, _('Gender non-conforming')), )
+GENDERS = (
+    (1, _('Male')),
+    (2, _('Female')),
+    (9, _('Gender non-conforming')),
+)
 
-NIDS = ((7240, _('Passport')),
-        (7241, 'Documento Nacional de Identidad'),
-        (7242, 'Número de Identificación de Extranjeros'),
-        (0, _('Unknown')), )
+NIDS = (
+    (7240, _('Passport')),
+    (7241, 'Documento Nacional de Identidad'),
+    (7242, 'Número de Identificación de Extranjeros'),
+    (0, _('Unknown')),
+)
 
 
 class Membership(models.Model):
@@ -44,6 +49,7 @@ class Membership(models.Model):
     contact_id = models.CharField(max_length=9)
     date_left = models.DateField(null=True, blank=True)
     drop_out = models.BooleanField(default=False)
+
     # TODO logging
     # TODO gamification
 
@@ -77,4 +83,3 @@ class Subscription(models.Model):
 
 class Nexus(models.Model):
     group = models.OneToOneField(Group)
-

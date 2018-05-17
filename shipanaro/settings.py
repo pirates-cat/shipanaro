@@ -140,13 +140,9 @@ STATIC_URL = '/static/'
 # Django REST Framework
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'shipanaro.api.permissions.IsAPIGroupUser'
-    ]
+    'DEFAULT_PERMISSION_CLASSES': ['shipanaro.api.permissions.IsAPIGroupUser']
 }
 
 PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
-
-JET_SIDE_MENU_COMPACT = True
 
 SHIPANARO_API_GROUP = 'system'

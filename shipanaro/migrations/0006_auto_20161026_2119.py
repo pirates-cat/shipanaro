@@ -24,6 +24,10 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='membership',
             name='nid_type',
-            field=models.IntegerField(choices=[(7240, 'Passport'), (7241, 'Documento Nacional de Identidad'), (7242, 'Número de Identificación de Extranjeros'), (0, 'Desconocido')]),
+            field=models.IntegerField(choices=[(7240, 'Passport'), (
+                7241, 'Documento Nacional de Identidad'
+            ), (7242,
+                'Número de Identificación de Extranjeros'), (0,
+                                                             'Desconocido')]),
         ),
     ]

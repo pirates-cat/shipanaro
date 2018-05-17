@@ -23,7 +23,8 @@ class UserViewSet(viewsets.ModelViewSet):
     def bind(self, request, *args, **kwargs):
         user = authenticate(
             username=request.data['username'],
-            password=request.data['password'], )
+            password=request.data['password'],
+        )
         if user is None:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
         return Response(status=status.HTTP_204_NO_CONTENT)

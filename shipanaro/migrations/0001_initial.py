@@ -21,71 +21,83 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Membership',
             fields=[
-                ('id', models.AutoField(
-                    auto_created=True,
-                    primary_key=True,
-                    serialize=False,
-                    verbose_name='ID')),
+                ('id',
+                 models.AutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
                 ('uid', models.IntegerField()),
-                ('level', models.IntegerField(
-                    choices=[(0, 'Anonymous'), (100, 'Member')])),
-                ('assigned_sex', models.IntegerField(
-                    blank=True,
-                    choices=[(1, 'Male'), (2, 'Female'), (9, 'Intersexual')])),
-                ('gender', models.IntegerField(
-                    blank=True,
-                    choices=[(1, 'Male'), (2, 'Female'),
-                             (9, 'Gender non-conforming')])),
+                ('level',
+                 models.IntegerField(choices=[(0, 'Anonymous'), (100,
+                                                                 'Member')])),
+                ('assigned_sex',
+                 models.IntegerField(
+                     blank=True,
+                     choices=[(1, 'Male'), (2, 'Female'), (9,
+                                                           'Intersexual')])),
+                ('gender',
+                 models.IntegerField(
+                     blank=True,
+                     choices=[(1, 'Male'), (2, 'Female'),
+                              (9, 'Gender non-conforming')])),
                 ('birthday', models.DateField(blank=True)),
-                ('nationality', models.CharField(
-                    blank=True, max_length=20)),
-                ('nid', models.CharField(
-                    blank=True, max_length=50)),
-                ('nid_type', models.IntegerField(
-                    blank=True,
-                    choices=[(7240, 'Passport'),
-                             (7241, 'Documento Nacional de Identidad'),
-                             (7242,
-                              'Número de Identificación de Extranjeros')])),
-                ('address', models.CharField(
-                    blank=True, max_length=140)),
-                ('city', models.CharField(
-                    blank=True, max_length=70)),
-                ('postal_code', models.CharField(
-                    blank=True, max_length=20)),
-                ('phone', phonenumber_field.modelfields.PhoneNumberField(
-                    blank=True, max_length=128)),
-                ('user', models.OneToOneField(
-                    on_delete=django.db.models.deletion.CASCADE,
-                    to=settings.AUTH_USER_MODEL)),
-            ], ),
+                ('nationality', models.CharField(blank=True, max_length=20)),
+                ('nid', models.CharField(blank=True, max_length=50)),
+                ('nid_type',
+                 models.IntegerField(
+                     blank=True,
+                     choices=[(7240, 'Passport'),
+                              (7241, 'Documento Nacional de Identidad'),
+                              (7242,
+                               'Número de Identificación de Extranjeros')])),
+                ('address', models.CharField(blank=True, max_length=140)),
+                ('city', models.CharField(blank=True, max_length=70)),
+                ('postal_code', models.CharField(blank=True, max_length=20)),
+                ('phone',
+                 phonenumber_field.modelfields.PhoneNumberField(
+                     blank=True, max_length=128)),
+                ('user',
+                 models.OneToOneField(
+                     on_delete=django.db.models.deletion.CASCADE,
+                     to=settings.AUTH_USER_MODEL)),
+            ],
+        ),
         migrations.CreateModel(
             name='Nexus',
             fields=[
-                ('id', models.AutoField(
-                    auto_created=True,
-                    primary_key=True,
-                    serialize=False,
-                    verbose_name='ID')),
-                ('group', models.OneToOneField(
-                    on_delete=django.db.models.deletion.CASCADE,
-                    to='auth.Group')),
-            ], ),
+                ('id',
+                 models.AutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
+                ('group',
+                 models.OneToOneField(
+                     on_delete=django.db.models.deletion.CASCADE,
+                     to='auth.Group')),
+            ],
+        ),
         migrations.CreateModel(
             name='Subscription',
             fields=[
-                ('id', models.AutoField(
-                    auto_created=True,
-                    primary_key=True,
-                    serialize=False,
-                    verbose_name='ID')),
-                ('service', models.CharField(
-                    choices=[('newsletter', 'Newsletter')], max_length=20)),
-                ('to_field', models.CharField(
-                    choices=[('user__email', 'E-mail')], max_length=20)),
-                ('member', models.ForeignKey(
-                    on_delete=django.db.models.deletion.CASCADE,
-                    related_name='subscriptions',
-                    to='shipanaro.Membership')),
-            ], ),
+                ('id',
+                 models.AutoField(
+                     auto_created=True,
+                     primary_key=True,
+                     serialize=False,
+                     verbose_name='ID')),
+                ('service',
+                 models.CharField(
+                     choices=[('newsletter', 'Newsletter')], max_length=20)),
+                ('to_field',
+                 models.CharField(
+                     choices=[('user__email', 'E-mail')], max_length=20)),
+                ('member',
+                 models.ForeignKey(
+                     on_delete=django.db.models.deletion.CASCADE,
+                     related_name='subscriptions',
+                     to='shipanaro.Membership')),
+            ],
+        ),
     ]

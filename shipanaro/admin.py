@@ -48,40 +48,81 @@ class MembershipAdmin(ShipanaroModelAdmin):
         # 'nationality',
         # 'notes',
         'postal_code',
-        'drop_out', )
+        'drop_out',
+    )
     ordering = ('-uid', )
-    list_filter = ('drop_out',
-                   ('postal_code', DropdownFilter),
-                   'gender',
-                   ('user__date_joined', DateRangeFilter),
-                   ('birthday', DateRangeFilter),
-                   'province', )
-    search_fields = ('user__last_name',
-                     'user__first_name',
-                     'user__username',
-                     'user__email', )
-    fieldsets = ((None, {'fields': ('user',
-                                    'uid',
-                                    'birthday',
-                                    'nationality',
-                                    ('nid_type',
-                                     'nid', ),
-                                    ('assigned_sex',
-                                     'gender', ), ), }),
-                 (_('Contact'),
-                  {'fields': ('phone',
-                              'phone_2', )}, ),
-                 (_('Address'),
-                  {'fields': ('address',
-                              ('postal_code',
-                               'city', ),
-                              'province', )}, ),
-                 (_('Status'),
-                  {'fields': ('date_left',
-                              'drop_out', )}, ),
-                 (_('Notes'),
-                  {'fields': ('notes', )}, ),
-                 (_('Legacy'), {'fields': ('contact_id', )}), )
+    list_filter = (
+        'drop_out',
+        ('postal_code', DropdownFilter),
+        'gender',
+        ('user__date_joined', DateRangeFilter),
+        ('birthday', DateRangeFilter),
+        'province',
+    )
+    search_fields = (
+        'user__last_name',
+        'user__first_name',
+        'user__username',
+        'user__email',
+    )
+    fieldsets = (
+        (None, {
+            'fields': (
+                'user',
+                'uid',
+                'birthday',
+                'nationality',
+                (
+                    'nid_type',
+                    'nid',
+                ),
+                (
+                    'assigned_sex',
+                    'gender',
+                ),
+            ),
+        }),
+        (
+            _('Contact'),
+            {
+                'fields': (
+                    'phone',
+                    'phone_2',
+                )
+            },
+        ),
+        (
+            _('Address'),
+            {
+                'fields': (
+                    'address',
+                    (
+                        'postal_code',
+                        'city',
+                    ),
+                    'province',
+                )
+            },
+        ),
+        (
+            _('Status'),
+            {
+                'fields': (
+                    'date_left',
+                    'drop_out',
+                )
+            },
+        ),
+        (
+            _('Notes'),
+            {
+                'fields': ('notes', )
+            },
+        ),
+        (_('Legacy'), {
+            'fields': ('contact_id', )
+        }),
+    )
 
     def user__first_name(self, m):
         return m.user.first_name
@@ -106,7 +147,7 @@ admin.site.register(models.Membership, MembershipAdmin)
 
 
 class SubscriptionAdmin(ShipanaroModelAdmin):
-    search_fields = ('endpoint',)
+    search_fields = ('endpoint', )
 
 
 admin.site.register(models.Subscription, SubscriptionAdmin)

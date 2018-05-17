@@ -15,13 +15,15 @@ def set_drop_out(apps, schema_editor):
 
 class Migration(migrations.Migration):
 
-    dependencies = [('shipanaro', '0004_auto_20160824_0101'), ]
+    dependencies = [
+        ('shipanaro', '0004_auto_20160824_0101'),
+    ]
 
     operations = [
         migrations.AddField(
             model_name='membership',
             name='drop_out',
-            field=models.BooleanField(default=False), ),
-        migrations.RunPython(
-            code=set_drop_out, ),
+            field=models.BooleanField(default=False),
+        ),
+        migrations.RunPython(code=set_drop_out, ),
     ]
