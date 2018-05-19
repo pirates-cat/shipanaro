@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rangefilter',
     'export_action',
     'shipanaro',
-    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -126,12 +125,6 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
-
-# Django REST Framework
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ['shipanaro.api.permissions.IsAPIGroupUser']
-}
 
 PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 
