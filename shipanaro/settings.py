@@ -84,16 +84,6 @@ DATABASES = {
     }
 }
 
-# Password storage
-# https://docs.djangoproject.com/es/1.10/topics/auth/passwords/#auth-password-storage
-
-PASSWORD_HASHERS = [
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'shipanaro.auth.hashers.LDAPSHA1PasswordHasher',
-    'django.contrib.auth.hashers.UnsaltedSHA1PasswordHasher',
-    'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher'
-]
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
