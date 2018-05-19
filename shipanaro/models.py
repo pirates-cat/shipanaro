@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from django.contrib.auth.models import User, Group
 from django.utils.translation import ugettext as _
-# from phonenumber_field.modelfields import PhoneNumberField
-# from django.conf import settings
+from shipanaro.auth.models import User, Group
 
 # Based on ISO 5218
 SEXES = (
@@ -49,9 +47,6 @@ class Membership(models.Model):
     contact_id = models.CharField(max_length=9)
     date_left = models.DateField(null=True, blank=True)
     drop_out = models.BooleanField(default=False)
-
-    # TODO logging
-    # TODO gamification
 
     def save(self, *args, **kwargs):
         super(Membership, self).save(*args, **kwargs)

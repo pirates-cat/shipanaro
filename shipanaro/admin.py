@@ -1,29 +1,41 @@
-from django_admin_listfilter_dropdown.filters import DropdownFilter
-from django.contrib import admin, auth
+from django.conf import settings
+from django.contrib import admin
+from django.contrib.admin import ModelAdmin
+from django.contrib.auth.admin import GroupAdmin, UserAdmin
 from django.utils.translation import ugettext_lazy as _
+from django_admin_listfilter_dropdown.filters import DropdownFilter
 from rangefilter.filter import DateRangeFilter
-from shipanaro import models
+from shipanaro.auth.models import User, Group
+from shipanaro.models import Membership, Subscription
+
+admin.site.site_header = admin.site.site_title = settings.SHIPANARO_SITE_NAME
 
 
-class ShipanaroModelAdmin(admin.ModelAdmin):
+class ShipanaroModelAdmin(ModelAdmin):
     list_per_page = 20
 
 
-class UserAdmin(auth.admin.UserAdmin, ShipanaroModelAdmin):
+class ShipanaroUserAdmin(UserAdmin, ShipanaroModelAdmin):
     list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff',
                     'is_active')
 
 
-admin.site.unregister(auth.models.User)
-admin.site.register(auth.models.User, UserAdmin)
+try:
+    admin.site.unregister(User)
+except admin.sites.NotRegistered:
+    pass
+admin.site.register(User, ShipanaroUserAdmin)
 
 
-class GroupAdmin(auth.admin.GroupAdmin, ShipanaroModelAdmin):
+class ShipanaroGroupAdmin(GroupAdmin, ShipanaroModelAdmin):
     pass
 
 
-admin.site.unregister(auth.models.Group)
-admin.site.register(auth.models.Group, GroupAdmin)
+try:
+    admin.site.unregister(Group)
+except admin.sites.NotRegistered:
+    pass
+admin.site.register(Group, ShipanaroGroupAdmin)
 
 
 class MembershipAdmin(ShipanaroModelAdmin):
@@ -143,11 +155,11 @@ class MembershipAdmin(ShipanaroModelAdmin):
         return m.user.is_active
 
 
-admin.site.register(models.Membership, MembershipAdmin)
+admin.site.register(Membership, MembershipAdmin)
 
 
 class SubscriptionAdmin(ShipanaroModelAdmin):
     search_fields = ('endpoint', )
 
 
-admin.site.register(models.Subscription, SubscriptionAdmin)
+admin.site.register(Subscription, SubscriptionAdmin)

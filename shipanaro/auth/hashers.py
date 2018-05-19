@@ -1,9 +1,10 @@
-from hashers_passlib.converters import Converter
 from binascii import hexlify, unhexlify
 from base64 import b64encode, b64decode
 from django.contrib.auth.hashers import SHA1PasswordHasher
 from django.utils.encoding import force_bytes
+from hashers_passlib.converters import Converter
 import hashlib
+import os
 
 
 class LDAPSHA1PasswordHasher(SHA1PasswordHasher):
@@ -29,3 +30,10 @@ class ldap_salted_sha1(Converter):
         data = unhexlify(encoded[digest_mark + 1:])
         data += unhexlify(encoded[salt_mark + 1:digest_mark])
         return '{SSHA}%s' % str(b64encode(data), 'utf-8')
+
+
+def make_ldap_password(raw_password):
+    h = LDAPSHA1PasswordHasher()
+    c = ldap_salted_sha1()
+    salt = hexlify(os.urandom(64)).decode('ascii')
+    return c.to_orig(h.encode(raw_password, salt)).encode('ascii')

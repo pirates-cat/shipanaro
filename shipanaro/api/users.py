@@ -1,8 +1,8 @@
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from rest_framework.decorators import list_route
 from rest_framework.response import Response
 from rest_framework import serializers, viewsets, status, filters
+from shipanaro.auth.models import User
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

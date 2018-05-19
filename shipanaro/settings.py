@@ -89,7 +89,7 @@ DATABASES = {
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'shipanaro.hashers.LDAPSHA1PasswordHasher',
+    'shipanaro.auth.hashers.LDAPSHA1PasswordHasher',
     'django.contrib.auth.hashers.UnsaltedSHA1PasswordHasher',
     'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher'
 ]
@@ -146,3 +146,5 @@ REST_FRAMEWORK = {
 PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 
 SHIPANARO_API_GROUP = 'system'
+
+SHIPANARO_SITE_NAME = 'Shipanaro'
