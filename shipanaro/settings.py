@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'shipanaro',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     'django_admin_listfilter_dropdown',
     'rangefilter',
     'export_action',
-    'shipanaro',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -122,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 STATIC_URL = '/static/'
 
@@ -131,3 +131,5 @@ PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 SHIPANARO_API_GROUP = 'system'
 
 SHIPANARO_SITE_NAME = 'Shipanaro'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
