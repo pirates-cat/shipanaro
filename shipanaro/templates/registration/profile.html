@@ -1,0 +1,9 @@
+{% extends 'shipanaro/base.html' %}
+{% load i18n %}
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit" class="btn btn-primary">{% trans 'Submit' %}</button>
+</form>
+{% endblock %}

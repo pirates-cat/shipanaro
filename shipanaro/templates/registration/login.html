@@ -1,0 +1,10 @@
+{% extends 'shipanaro/base.html' %}
+{% load i18n %}
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit" class="btn btn-primary">{% trans 'Log in' %}</button>
+</form>
+<a href="{% url 'password_reset' %}">{% trans 'Password reset' %}</a>
+{% endblock %}
