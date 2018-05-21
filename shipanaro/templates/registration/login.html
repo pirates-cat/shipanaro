@@ -1,10 +1,12 @@
 {% extends 'shipanaro/base.html' %}
-{% load i18n %}
+{% load i18n bootstrap4 %}
 {% block content %}
 <form method="post">
 	{% csrf_token %}
-	{{ form.as_p }}
+	{% bootstrap_form form %}
+	{% buttons %}
 	<button type="submit" class="btn btn-primary">{% trans 'Log in' %}</button>
+	{% endbuttons %}
 </form>
 <a href="{% url 'password_reset' %}">{% trans 'Password reset' %}</a>
 {% endblock %}

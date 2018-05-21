@@ -1,0 +1,276 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-21 07:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ship_pirates/templates/shipanaro/index.html:5 shipanaro/admin.py:98
+msgid "Contacte"
+msgstr "Contacte"
+
+#: ship_pirates/templates/shipanaro/index.html:13
+msgid "Web"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:14
+msgid "Pàgina oficial del partit. Inclou el bloc i l'ideari del partit."
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:15
+#: ship_pirates/templates/shipanaro/index.html:40
+#: ship_pirates/templates/shipanaro/index.html:49
+#: ship_pirates/templates/shipanaro/index.html:60
+#: ship_pirates/templates/shipanaro/index.html:81
+#: ship_pirates/templates/shipanaro/index.html:90
+msgid "Go"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:16
+msgid "Bloc"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:17
+msgid "Ideari"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:24
+msgid "Xarxes socials"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:25
+msgid "Troba'ns a les xarxes i comparteix el que hi publiquem."
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:26
+msgid "Mastodon"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:27
+msgid "Twitter"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:28
+msgid "Facebook"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:29
+msgid "Instagram"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:38
+msgid "Sistema de Participació"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:39
+msgid "Sistema de votació del partit."
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:47
+msgid "Pads"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:48
+msgid "Eina col·laborativa d'edició de textos"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:58
+msgid "Llistes de correu"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:59
+msgid "Eina de comunicació de grups per correu electrònic."
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:67
+msgid "Xat"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:68
+msgid "Eina de missatgeria instantània per a grups."
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:69
+msgid "Grup de notificacions"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:69
+msgid "Assemblea"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:70
+msgid "Grup de conversa sense restriccions"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:70
+msgid "Discussió"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:79
+msgid "Wiki"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:80
+msgid "Wiki del partit."
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:88
+msgid "Cloud"
+msgstr ""
+
+#: ship_pirates/templates/shipanaro/index.html:89
+msgid "Repositori de fitxers i documents."
+msgstr ""
+
+#: shipanaro/admin.py:107
+msgid "Address"
+msgstr ""
+
+#: shipanaro/admin.py:120
+msgid "Status"
+msgstr ""
+
+#: shipanaro/admin.py:129
+msgid "Notes"
+msgstr ""
+
+#: shipanaro/admin.py:134
+msgid "Legacy"
+msgstr ""
+
+#: shipanaro/auth/views.py:27 shipanaro/templates/registration/login.html:7
+#: shipanaro/templates/registration/password_reset_complete.html:5
+#: shipanaro/templates/shipanaro/base.html:33
+msgid "Log in"
+msgstr ""
+
+#: shipanaro/auth/views.py:93
+msgid "Personal info"
+msgstr ""
+
+#: shipanaro/models.py:9 shipanaro/models.py:18
+msgid "Male"
+msgstr ""
+
+#: shipanaro/models.py:10 shipanaro/models.py:19
+msgid "Female"
+msgstr ""
+
+#: shipanaro/models.py:11
+msgid "Not Applicable"
+msgstr ""
+
+#: shipanaro/models.py:20
+msgid "Gender non-conforming"
+msgstr ""
+
+#: shipanaro/models.py:24
+msgid "Passport"
+msgstr ""
+
+#: shipanaro/models.py:27
+msgid "Unknown"
+msgstr ""
+
+#: shipanaro/models.py:66
+msgid "Newsletter"
+msgstr ""
+
+#: shipanaro/templates/registration/login.html:9
+msgid "Password reset"
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_complete.html:4
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_confirm.html:5
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_confirm.html:9
+msgid "Change my password"
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_confirm.html:12
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_done.html:4
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_done.html:5
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_form.html:4
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll email "
+"instructions for setting a new one."
+msgstr ""
+
+#: shipanaro/templates/registration/password_reset_form.html:8
+msgid "Reset my password"
+msgstr ""
+
+#: shipanaro/templates/registration/profile.html:7
+msgid "Submit"
+msgstr ""
+
+#: shipanaro/templates/shipanaro/base.html:26
+msgid "Administration"
+msgstr ""
+
+#: shipanaro/templates/shipanaro/base.html:29
+msgid "Log out"
+msgstr ""
+
+#: shipanaro/views.py:14
+msgid "Home"
+msgstr ""

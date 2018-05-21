@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_admin_listfilter_dropdown',
     'rangefilter',
     'export_action',
+    'bootstrap4',
 ]
 
 MIDDLEWARE_CLASSES = [
