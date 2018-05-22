@@ -1,11 +1,18 @@
 {% extends 'shipanaro/base.html' %}
 {% load i18n bootstrap4 %}
 {% block content %}
-<form method="post">
-	{% csrf_token %}
-        {% bootstrap_form form %}
-        {% buttons %}
-	<button type="submit" class="btn btn-primary">{% trans 'Submit' %}</button>
-	{% endbuttons %}
-</form>
+<div class="row">
+	<div class="col-lg-10">
+		<form method="post">
+			{% csrf_token %}
+			{% bootstrap_form form %}
+			{% buttons %}
+			<button type="submit" class="btn btn-primary">{% trans 'Submit' %}</button>
+			{% endbuttons %}
+		</form>
+	</div>
+	<div class="col-lg-2">
+		<button type="submit" class="btn btn-primary">{% trans 'Desubscribe' %}</button>
+	</div>
+</div>
 {% endblock %}
