@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'bootstrap4',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -134,3 +134,8 @@ SHIPANARO_API_GROUP = 'system'
 SHIPANARO_SITE_NAME = 'Shipanaro'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+try:
+    from shipanaro.local_settings import *
+except ImportError:
+    pass
