@@ -14,6 +14,21 @@ class UserForm(ModelForm):
 
 
 class MembershipForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs['instance'].user
+        user_kwargs = kwargs.copy()
+        user_kwargs['instance'] = self.user
+        self.user_form = UserForm(*args, **user_kwargs)
+        super(MembershipForm, self).__init__(*args, **kwargs)
+        fields = self.user_form.fields.copy()
+        fields.update(self.fields)
+        self.fields = fields
+        self.initial.update(self.user_form.initial)
+
+    def save(self, *args, **kwargs):
+        self.user_form.save(*args, **kwargs)
+        return super(MembershipForm, self).save(*args, **kwargs)
+
     class Meta:
         model = Membership
         fields = [
