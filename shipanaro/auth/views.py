@@ -42,12 +42,11 @@ def logout(request, extra_context=None):
 
     This should *not* assume the user is already logged in.
     """
+    extra_context = extra_context or {}
+    # Since the user isn't logged out at this point, the value of has_permission must be overridden.
+    extra_context['has_permission'] = False
     defaults = view_defaults(
-        extra_context={
-            # Since the user isn't logged out at this point, the value of has_permission must be overridden.
-            'has_permission': False,
-            **(extra_context or {}),
-        },
+        extra_context=extra_context,
         next_page=reverse(
             'index', current_app=request.resolver_match.app_name))
     return LogoutView.as_view(**defaults)(request)
@@ -91,8 +90,8 @@ class MembershipView(SuccessMessageMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         context.update({
             'title': _('Personal info'),
-            **(self.extra_context or {}),
         })
+        context.update(self.extra_context or {})
         return context
 
     def get_object(self, queryset=None):

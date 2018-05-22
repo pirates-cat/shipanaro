@@ -12,8 +12,8 @@ class IndexView(TemplateView):
         context = super().get_context_data(**kwargs)
         context.update({
             'title': _('Home'),
-            **(self.extra_context or {}),
         })
+        context.update(self.extra_context or {})
         return context
 
 
@@ -23,10 +23,10 @@ def index(request, extra_context=None):
 
 
 def view_defaults(extra_context=None, **kwargs):
-    return {
-        'extra_context': {
-            'site_title': _(settings.SHIPANARO_SITE_NAME),
-            **(extra_context or {}),
-        },
-        **kwargs,
+    extra_context = extra_context or {}
+    extra_context['site_title'] = _(settings.SHIPANARO_SITE_NAME)
+    context = {
+        'extra_context': extra_context,
     }
+    context.update(kwargs)
+    return context
