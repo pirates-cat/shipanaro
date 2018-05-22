@@ -20,3 +20,4 @@ six = "*"
 [dev-packages]
 "Fabric3" = "*"
 yapf = "*"
+pylint = "*"
