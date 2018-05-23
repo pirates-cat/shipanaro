@@ -19,5 +19,5 @@ six = "*"
 
 [dev-packages]
 "Fabric3" = "*"
-yapf = "*"
 pylint = "*"
+"autopep8" = "*"
