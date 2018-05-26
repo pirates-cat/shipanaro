@@ -5,14 +5,13 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, 
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
+from django.utils.module_loading import import_string
 from django.utils.translation import gettext as _
 from django.views.decorators.cache import never_cache
 from django.views.generic.edit import UpdateView
-from shipanaro import conf
 from shipanaro.auth.forms import MembershipForm
 from shipanaro.models import Membership
 from shipanaro.views import view_defaults
-
 
 @never_cache
 def login(request, extra_context=None):
@@ -57,8 +56,7 @@ def password_reset(request, extra_context=None):
     """
     Display the password reset form.
     """
-    form_class = conf.import_setting_class(
-        'SHIPANARO_AUTH_PASSWORD_RESET_FORM', PasswordResetForm)
+    form_class = import_string(getattr(settings, 'SHIPANARO_AUTH_PASSWORD_RESET_FORM', PasswordResetForm))
     defaults = view_defaults(extra_context, form_class=form_class)
     return PasswordResetView.as_view(**defaults)(request)
 
@@ -105,6 +103,4 @@ def membership(request, extra_context=None):
     """
     Display the membership form.
     """
-    if settings.DEBUG:
-        return MembershipView.as_view(**view_defaults())(request)
-    return HttpResponseRedirect(reverse('index'))
+    return MembershipView.as_view(**view_defaults())(request)
