@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME
-from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
@@ -56,7 +56,7 @@ def password_reset(request, extra_context=None):
     """
     Display the password reset form.
     """
-    form_class = import_string(getattr(settings, 'SHIPANARO_AUTH_PASSWORD_RESET_FORM', PasswordResetForm))
+    form_class = import_string(getattr(settings, 'SHIPANARO_AUTH_PASSWORD_RESET_FORM', 'django.contrib.auth.forms.PasswordResetForm'))
     defaults = view_defaults(extra_context, form_class=form_class)
     return PasswordResetView.as_view(**defaults)(request)
 
