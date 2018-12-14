@@ -1,4 +1,3 @@
 {
-    "editor.detectIndentation": false,
-    "python.formatting.provider": "autopep8"
+    "python.pythonPath": "/home/dario/.virtualenvs/shipanaro-_64mpsUZ/bin/python"
 }
