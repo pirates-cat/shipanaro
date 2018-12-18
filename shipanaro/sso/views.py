@@ -33,6 +33,7 @@ def authorize(request):
         'email': request.user.email,
         'name': request.user.first_name,
         'username': request.user.username,
+        'add_groups': settings.SSO_AUTOMATIC_GROUPS,
     })
     payload = '{}&{}'.format(
         nonce,

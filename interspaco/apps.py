@@ -6,5 +6,5 @@ class InterspacoConfig(AppConfig):
     name = 'interspaco'
 
     def ready(self):
-        print('ready')
+        super().ready()
         self.module.autodiscover()

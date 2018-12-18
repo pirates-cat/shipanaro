@@ -15,16 +15,20 @@ class InterstitialSite:
         self.name = name
 
     def register(self, view_or_iterable):
+        print(view_or_iterable)
         if isinstance(view_or_iterable, InterstitialView):
             view_or_iterable = [view_or_iterable]
-        for view in view_or_iterable:
-            if view in self._registry:
-                raise AlreadyRegistered(
-                    'The view {} is already registered'.format(view.__name__))
-            self._registry[view] = view
+        print(view_or_iterable)
+        #for view in view_or_iterable:
+        #    if view in self._registry:
+        #        raise AlreadyRegistered(
+        #            'The view {} is already registered'.format(view.__name__))
+        #    self._registry[view] = view
 
     def get_urls(self):
         urlpatterns = []
+        for view in self._registry:
+            pass
         return urlpatterns
 
     @property

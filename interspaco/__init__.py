@@ -5,7 +5,9 @@ __all__ = [
     'site', 'autodiscover'
 ]
 
+
 def autodiscover():
-    autodiscover_modules('interspaco', register_to=site)
+    autodiscover_modules('interstitials', register_to=site)
+
 
 default_app_config = 'interspaco.apps.InterspacoConfig'
