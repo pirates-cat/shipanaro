@@ -40,11 +40,11 @@
         },
         "django-admin-rangefilter": {
             "hashes": [
-                "sha256:5b3bb80bd07d64d031be5c5c9c82f7de5fa64fd3e5a0efff0d169c98751ff56a",
-                "sha256:91e28eb0e85546cc3392032b4b5353b2520410fa1910eec065bb6920354f594c"
+                "sha256:c9db9f956f7a4610cf92b4d81d5d02bbf43f867887b5cb83665a8fad21b80a33",
+                "sha256:fc9965135e3fb18c7c379c38db3e655356a8f7e8260b6dd38d97817394995a8d"
             ],
             "index": "pypi",
-            "version": "==0.3.6"
+            "version": "==0.4.0"
         },
         "django-bootstrap4": {
             "hashes": [
