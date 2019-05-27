@@ -7,7 +7,7 @@ name = "pypi"
 python_version = "3.6"
 
 [packages]
-Django = "==1.11.13"
+Django = "==2.2.1"
 django-admin-list-filter-dropdown = "==1.0.1"
 django-admin-rangefilter = "==0.3.6"
 "django-bootstrap4" = "*"
