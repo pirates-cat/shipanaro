@@ -13,7 +13,7 @@ django-admin-rangefilter = "==0.3.6"
 "django-bootstrap4" = "*"
 django-export-action = "==0.1.1"
 django-phonenumber-field = "==2.0.0"
-"psycopg2-binary" = "==2.7.4"
+"psycopg2-binary" = "==2.8.2"
 pytz = "==2018.4"
 six = "*"
 
