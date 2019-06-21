@@ -8,7 +8,7 @@ python_version = "3.6"
 
 [packages]
 Django = "==2.2.1"
-django-admin-list-filter-dropdown = "==1.0.1"
+django-admin-list-filter-dropdown = "==1.0.2"
 django-admin-rangefilter = "==0.4.0"
 "django-bootstrap4" = "*"
 django-export-action = "==0.1.1"
