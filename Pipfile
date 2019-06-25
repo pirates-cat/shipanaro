@@ -3,9 +3,6 @@ verify_ssl = true
 url = "https://pypi.org/simple"
 name = "pypi"
 
-[requires]
-python_version = "3.6"
-
 [packages]
 Django = "==2.2.2"
 django-admin-list-filter-dropdown = "==1.0.2"
