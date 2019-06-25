@@ -7,14 +7,14 @@ name = "pypi"
 python_version = "3.6"
 
 [packages]
-Django = "==2.2.1"
-django-admin-list-filter-dropdown = "==1.0.1"
+Django = "==2.2.2"
+django-admin-list-filter-dropdown = "==1.0.2"
 django-admin-rangefilter = "==0.4.0"
 "django-bootstrap4" = "*"
 django-export-action = "==0.1.1"
 django-phonenumber-field = "==3.0.1"
 "psycopg2-binary" = "==2.8.2"
-pytz = "==2018.4"
+pytz = "==2019.1"
 six = "*"
 
 [dev-packages]
