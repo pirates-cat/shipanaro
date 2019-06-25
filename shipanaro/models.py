@@ -29,7 +29,7 @@ NIDS = (
 
 
 class Membership(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     uid = models.IntegerField()
     assigned_sex = models.IntegerField(choices=SEXES)
     gender = models.IntegerField(choices=GENDERS)
@@ -77,4 +77,4 @@ class Subscription(models.Model):
 
 
 class Nexus(models.Model):
-    group = models.OneToOneField(Group)
+    group = models.OneToOneField(Group, on_delete=models.CASCADE)

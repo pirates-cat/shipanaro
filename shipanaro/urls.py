@@ -7,6 +7,4 @@ urlpatterns = [
     url(r'^accounts/', include('shipanaro.auth.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^sso/', include('shipanaro.sso.urls')),
-    url(r'^export_action/',
-        include("export_action.urls", namespace="export_action")),
 ]
