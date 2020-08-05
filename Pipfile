@@ -4,7 +4,7 @@ url = "https://pypi.org/simple"
 name = "pypi"
 
 [packages]
-django = "==2.2.15"
+django = "==3.1"
 django-admin-list-filter-dropdown = "==1.0.3"
 django-admin-rangefilter = "==0.6.1"
 "django-bootstrap4" = "==2.2.0"
