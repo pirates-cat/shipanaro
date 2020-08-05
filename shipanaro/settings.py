@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'shipanaro',
-    # 'interspaco',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_admin_listfilter_dropdown',
     'rangefilter',
-    #'export_action',
     'bootstrap4',
 ]
 
