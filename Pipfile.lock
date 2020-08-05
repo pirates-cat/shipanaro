@@ -64,11 +64,10 @@
         },
         "django-phonenumber-field": {
             "hashes": [
-                "sha256:1ab19f723928582fed412bd9844221fa4ff466276d8526b8b4a9913ee1487c5e",
-                "sha256:794ebbc3068a7af75aa72a80cb0cec67e714ff8409a965968040f1fd210b2d97"
+                "sha256:d4580cc3352f4433962825f9927e6669852c1b40ec484fcb5a74064dabc1201a"
             ],
             "index": "pypi",
-            "version": "==3.0.1"
+            "version": "==4.0.0"
         },
         "et-xmlfile": {
             "hashes": [
