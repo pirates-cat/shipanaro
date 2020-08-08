@@ -24,11 +24,8 @@ func (l *lead) hash() string {
 func (l *lead) unsubscribe(client *api) error {
 	endpoint := fmt.Sprintf("/leads/%s", l.hash())
 	body := struct {
-		FirstName  string `json:"first_name"`
-		Subscribed bool   `json:"subscribed"`
-	}{
-		FirstName: "Ohai",
-	}
+		Subscribed bool `json:"subscribed"`
+	}{}
 	result := struct {
 		Message string `json:"message"`
 	}{}
