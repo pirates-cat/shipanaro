@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 Django = "==3.1"
 django-admin-list-filter-dropdown = "==1.0.3"
-django-admin-rangefilter = "==0.6.1"
+django-admin-rangefilter = "==0.6.2"
 "django-bootstrap4" = "==2.2.0"
 django-export-action = "==0.1.1"
 django-phonenumber-field = {extras = ["phonenumbers"], version = "==4.0.0."}
