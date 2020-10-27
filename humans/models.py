@@ -16,8 +16,8 @@ class User(AbstractUser):
             self.__ldap__set_password(password)
 
     def __ldap__save(self):
-        #ldap_user = _LDAPUser(LDAPBackend(), username=)
-        #l = ldap_user.connection
+        # ldap_user = _LDAPUser(LDAPBackend(), username=)
+        # l = ldap_user.connection
         return
 
     def __ldap__set_password(self, password):
@@ -26,8 +26,7 @@ class User(AbstractUser):
             return
         l = ldap_user.connection
         ldap_password = make_ldap_password(password)
-        mod_password = [(ldap.MOD_REPLACE, 'userPassword',
-                         [ldap_password])]
+        mod_password = [(ldap.MOD_REPLACE, "userPassword", [ldap_password])]
         l.modify_s(ldap_user.dn, mod_password)
 
     def set_password(self, raw_password):
@@ -35,5 +34,4 @@ class User(AbstractUser):
         self._password = raw_password
 
     class Meta:
-
-        db_table = 'auth_user'
+        db_table = "auth_user"

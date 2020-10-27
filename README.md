@@ -21,13 +21,25 @@ pipenv shell
 pipenv install
 ```
 
-
 ## Run locally
+
+Running things for the first time: since we include a custom user model in the `humans` app, running
+migrations is a bit tricky - doing it in two steps solves the issue:
+(Otherwise you may get an error `ValueError: Related model 'humans.user' cannot be resolved`)
 
 ```bash
 pipenv shell
+./manage.py migrate humans
 ./manage.py migrate
 ./manage.py createsuperuser
+./manage.py runserver
+```
+
+On subsequent updates, you will only need to optionally run migrations (if models have changed),
+and run the server:
+
+```
+./manage.py migrate
 ./manage.py runserver
 ```
 
@@ -39,3 +51,11 @@ and log in with the superuser account you just created.
 You can create a membership for your user account via the admin
 and browse to the [profile page](http://localhost:8000/accounts/profile/)
 to edit your membership (this is the end user-facing page).
+
+## Front-end build
+
+```bash
+yarn install
+yarn build  # for development
+yarn dist   # for production
+```

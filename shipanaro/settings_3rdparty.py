@@ -11,6 +11,7 @@ PHONENUMBER_DB_FORMAT = "INTERNATIONAL"
 
 
 # django-auth-ldap
+# https://django-auth-ldap.readthedocs.io
 # TODO: get from env var to facilitate local testing
 AUTH_LDAP_SERVER_URI = "ldap://10.0.0.15"
 AUTH_LDAP_BIND_DN = "cn=Manager,dc=pirata,dc=cat"
