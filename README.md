@@ -55,6 +55,7 @@ to edit your membership (this is the end user-facing page).
 ## Front-end build
 
 ```bash
+./manage.py collectstatic --no-input
 yarn install
 yarn build  # for development
 yarn dist   # for production
