@@ -64,7 +64,6 @@ ship_*/
 
 static/
 !.gitkeep
-.*
 
 local_settings.py
 

@@ -1,4 +1,4 @@
-from django.forms import inlineformset_factory, ModelForm
+from django.forms import ModelForm
 from shipanaro.auth.models import User
 from shipanaro.models import Membership
 
@@ -7,17 +7,17 @@ class UserForm(ModelForm):
     class Meta:
         model = User
         fields = [
-            'first_name',
-            'last_name',
-            'email',
+            "first_name",
+            "last_name",
+            "email",
         ]
 
 
 class MembershipForm(ModelForm):
     def __init__(self, *args, **kwargs):
-        self.user = kwargs['instance'].user
+        self.user = kwargs["instance"].user
         user_kwargs = kwargs.copy()
-        user_kwargs['instance'] = self.user
+        user_kwargs["instance"] = self.user
         self.user_form = UserForm(*args, **user_kwargs)
         super(MembershipForm, self).__init__(*args, **kwargs)
         fields = self.user_form.fields.copy()
@@ -32,13 +32,13 @@ class MembershipForm(ModelForm):
     class Meta:
         model = Membership
         fields = [
-            'assigned_sex',
-            'gender',
-            'nationality',
-            'address',
-            'city',
-            'postal_code',
-            'province',
-            'phone',
-            'phone_2',
+            "assigned_sex",
+            "gender",
+            "nationality",
+            "address",
+            "city",
+            "postal_code",
+            "province",
+            "phone",
+            "phone_2",
         ]

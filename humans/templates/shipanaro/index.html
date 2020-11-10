@@ -1,0 +1,89 @@
+{% extends 'shipanaro/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="row">
+	<div class="col-lg mb-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{% trans 'Web' %}</h5>
+				<p class="card-text">{% trans "Pàgina oficial del partit. Inclou el bloc i l'ideari del partit." %}</p>
+				<a href="http://pirates.cat/" class="btn btn-primary">{% trans 'Go' %} <i class="fas fa-angle-double-right"></i></a>
+				<a href="http://pirates.cat/el-bloc/" class="btn btn-primary">{% trans 'Bloc' %} <i class="fas fa-angle-double-right"></i></a>
+				<a href="http://pirates.cat/el-partit/ideari/" class="btn btn-primary">{% trans 'Ideari' %} <i class="fas fa-angle-double-right"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg mb-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{% trans 'Xarxes socials' %}</h5>
+				<p class="card-text">{% trans "Troba'ns a les xarxes i comparteix el que hi publiquem." %}</p>
+				<a href="https://mastodont.cat/@partit_pirata" class="btn btn-primary" title="{% trans 'Mastodon' %}"><i class="fab fa-mastodon"></i></a>
+				<a href="https://twitter.com/partit_pirata" class="btn btn-primary" title="{% trans 'Twitter' %}"><i class="fab fa-twitter"></i></a>
+				<a href="https://www.facebook.com/pirata.cat" class="btn btn-primary" title="{% trans 'Facebook' %}"><i class="fab fa-facebook"></i></a>
+				<a href="https://t.me/PirataCat" class="btn btn-primary" title="{% trans 'Instagram' %}"><i class="fab fa-telegram-plane"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg mb-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{% trans 'Sistema de Participació' %}</h5>
+				<p class="card-text">{% trans "Sistema de votació del partit." %}</p>
+				<a href="https://xifrat.pirates.cat/" class="btn btn-primary">{% trans 'Go' %} <i class="fas fa-angle-double-right"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg mb-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{% trans 'Pads' %}</h5>
+				<p class="card-text">{% trans "Eina col·laborativa d'edició de textos" %}</p>
+				<a href="https://pad.pirates.cat/" class="btn btn-primary">{% trans 'Go' %} <i class="fas fa-angle-double-right"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg mb-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{% trans 'Llistes de correu' %}</h5>
+				<p class="card-text">{% trans "Eina de comunicació de grups per correu electrònic." %}</p>
+				<a href="https://correu.pirates.cat/cgi-bin/mailman/listinfo" class="btn btn-primary">{% trans 'Go' %} <i class="fas fa-angle-double-right"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg mb-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{% trans 'Xat' %}</h5>
+				<p class="card-text">{% trans "Eina de missatgeria instantània per a grups." %}</p>
+				<a href="https://xat.pirates.cat" class="btn btn-primary">{% trans 'Go' %} <i class="fas fa-angle-double-right"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg mb-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{% trans 'Wiki' %}</h5>
+				<p class="card-text">{% trans "Wiki del partit." %}</p>
+				<a href="https://wiki.pirates.cat/" class="btn btn-primary">{% trans 'Go' %} <i class="fas fa-angle-double-right"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg mb-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{% trans 'Cloud' %}</h5>
+				<p class="card-text">{% trans "Repositori de fitxers i documents." %}</p>
+				<a href="https://cloud.pirates.cat/" class="btn btn-primary">{% trans 'Go' %} <i class="fas fa-angle-double-right"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

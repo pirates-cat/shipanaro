@@ -18,120 +18,120 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ship_pirates/templates/shipanaro/index.html:5 shipanaro/admin.py:98
+#: humans/templates/shipanaro/index.html:5 shipanaro/admin.py:98
 msgid "Contacte"
 msgstr "Contacte"
 
-#: ship_pirates/templates/shipanaro/index.html:13
+#: humans/templates/shipanaro/index.html:13
 msgid "Web"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:14
+#: humans/templates/shipanaro/index.html:14
 msgid "Pàgina oficial del partit. Inclou el bloc i l'ideari del partit."
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:15
-#: ship_pirates/templates/shipanaro/index.html:40
-#: ship_pirates/templates/shipanaro/index.html:49
-#: ship_pirates/templates/shipanaro/index.html:60
-#: ship_pirates/templates/shipanaro/index.html:81
-#: ship_pirates/templates/shipanaro/index.html:90
+#: humans/templates/shipanaro/index.html:15
+#: humans/templates/shipanaro/index.html:40
+#: humans/templates/shipanaro/index.html:49
+#: humans/templates/shipanaro/index.html:60
+#: humans/templates/shipanaro/index.html:81
+#: humans/templates/shipanaro/index.html:90
 msgid "Go"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:16
+#: humans/templates/shipanaro/index.html:16
 msgid "Bloc"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:17
+#: humans/templates/shipanaro/index.html:17
 msgid "Ideari"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:24
+#: humans/templates/shipanaro/index.html:24
 msgid "Xarxes socials"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:25
+#: humans/templates/shipanaro/index.html:25
 msgid "Troba'ns a les xarxes i comparteix el que hi publiquem."
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:26
+#: humans/templates/shipanaro/index.html:26
 msgid "Mastodon"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:27
+#: humans/templates/shipanaro/index.html:27
 msgid "Twitter"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:28
+#: humans/templates/shipanaro/index.html:28
 msgid "Facebook"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:29
+#: humans/templates/shipanaro/index.html:29
 msgid "Instagram"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:38
+#: humans/templates/shipanaro/index.html:38
 msgid "Sistema de Participació"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:39
+#: humans/templates/shipanaro/index.html:39
 msgid "Sistema de votació del partit."
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:47
+#: humans/templates/shipanaro/index.html:47
 msgid "Pads"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:48
+#: humans/templates/shipanaro/index.html:48
 msgid "Eina col·laborativa d'edició de textos"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:58
+#: humans/templates/shipanaro/index.html:58
 msgid "Llistes de correu"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:59
+#: humans/templates/shipanaro/index.html:59
 msgid "Eina de comunicació de grups per correu electrònic."
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:67
+#: humans/templates/shipanaro/index.html:67
 msgid "Xat"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:68
+#: humans/templates/shipanaro/index.html:68
 msgid "Eina de missatgeria instantània per a grups."
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:69
+#: humans/templates/shipanaro/index.html:69
 msgid "Grup de notificacions"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:69
+#: humans/templates/shipanaro/index.html:69
 msgid "Assemblea"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:70
+#: humans/templates/shipanaro/index.html:70
 msgid "Grup de conversa sense restriccions"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:70
+#: humans/templates/shipanaro/index.html:70
 msgid "Discussió"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:79
+#: humans/templates/shipanaro/index.html:79
 msgid "Wiki"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:80
+#: humans/templates/shipanaro/index.html:80
 msgid "Wiki del partit."
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:88
+#: humans/templates/shipanaro/index.html:88
 msgid "Cloud"
 msgstr ""
 
-#: ship_pirates/templates/shipanaro/index.html:89
+#: humans/templates/shipanaro/index.html:89
 msgid "Repositori de fitxers i documents."
 msgstr ""
 
