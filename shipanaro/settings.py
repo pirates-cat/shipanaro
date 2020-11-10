@@ -10,6 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
-from .settings_django import *
-from .settings_3rdparty import *
-from .settings_project import *
+from .settings_django import *  # NOQA
+from .settings_3rdparty import *  # NOQA
+from .settings_project import *  # NOQA

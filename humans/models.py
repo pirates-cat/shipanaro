@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django_auth_ldap.backend import LDAPBackend, _LDAPUser
 from humans.auth.hashers import make_ldap_password
@@ -24,10 +23,10 @@ class User(AbstractUser):
         ldap_user = _LDAPUser(LDAPBackend(), username=self.username)
         if ldap_user.dn is None:
             return
-        l = ldap_user.connection
+        conn = ldap_user.connection
         ldap_password = make_ldap_password(password)
         mod_password = [(ldap.MOD_REPLACE, "userPassword", [ldap_password])]
-        l.modify_s(ldap_user.dn, mod_password)
+        conn.modify_s(ldap_user.dn, mod_password)
 
     def set_password(self, raw_password):
         self.set_unusable_password()

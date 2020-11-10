@@ -14,8 +14,8 @@ class PasswordResetForm(ResetForm):
         """
         active_users = User._default_manager.filter(
             **{
-                '%s__iexact' % User.get_email_field_name(): email,
-                'is_active': True,
-            })
-        import pprint; pprint.pprint(active_users)
+                "%s__iexact" % User.get_email_field_name(): email,
+                "is_active": True,
+            }
+        )
         return active_users

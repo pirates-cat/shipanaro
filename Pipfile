@@ -12,15 +12,12 @@ django-bootstrap4 = "==2.2.0"
 django-export-action = "==0.1.1"
 psycopg2-binary = "==2.8.6"
 pytz = "==2020.1"
-six = "*"
-wheel = "*"
 django-hashers-passlib = "*"
-django = "==3.1.2"
 
 [dev-packages]
+wheel = "*"
 Fabric3 = "*"
-pylint = "*"
-autopep8 = "*"
+flake8 = "*"
 
 [packages.django-phonenumber-field]
 extras = [ "phonenumbers",]
