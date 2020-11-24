@@ -2,6 +2,10 @@ import os
 
 import ldap
 from django_auth_ldap.config import LDAPSearch, PosixGroupType
+from environs import Env
+
+env = Env()
+env.read_env()
 
 
 # TODO: review, this is only used in old migrations
@@ -13,9 +17,9 @@ PHONENUMBER_DB_FORMAT = "INTERNATIONAL"
 # django-auth-ldap
 # https://django-auth-ldap.readthedocs.io
 # TODO: get from env var to facilitate local testing
-AUTH_LDAP_SERVER_URI = "ldap://10.0.0.15"
-AUTH_LDAP_BIND_DN = "cn=Manager,dc=pirata,dc=cat"
-AUTH_LDAP_BIND_PASSWORD = os.getenv("SHIPANARO_LDAP_BIND_PASSWORD")
+AUTH_LDAP_SERVER_URI = env("SHIPANARO_LDAP_URL", "ldap://10.0.0.15")
+AUTH_LDAP_BIND_DN = env("SHIPANARO_LDAP_BIND_DN", "cn=Manager,dc=pirata,dc=cat")
+AUTH_LDAP_BIND_PASSWORD = env("SHIPANARO_LDAP_BIND_PASSWORD")
 AUTH_LDAP_USER_SEARCH = LDAPSearch(
     "dc=pirata,dc=cat", ldap.SCOPE_SUBTREE, "(&(objectclass=pilotPerson)(uid=%(user)s))"
 )

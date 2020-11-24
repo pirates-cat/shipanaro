@@ -1,0 +1,80 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    environment:
+      SHIPANARO_SECRET_KEY: "$$e(u0!808ht4^aw9d6e!&=v!19wvg0cam!^in&w#)yt&=zyi+l"
+      SHIPANARO_DEBUG: "True"
+      SHIPANARO_EMAIL_URL: "${SHIPANARO_EMAIL_URL:-console://}"
+      SHIPANARO_ALLOWED_HOSTS: "0.0.0.0,localhost,127.0.0.1"
+      SHIPANARO_DATABASE_URL: postgres://postgres@db/postgres
+      SHIPANARO_LDAP_URL: "ldap://ldap"
+      SHIPANARO_LDAP_BIND_DN: "cn=admin,dc=pirata,dc=cat"
+      SHIPANARO_LDAP_BIND_PASSWORD: "admin"
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+      - ldap
+  db:
+    image: postgres:11
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+  ldap:
+    # https://github.com/osixia/docker-openldap
+    # https://github.com/osixia/docker-openldap/blob/stable/example/docker-compose.yml
+    image: osixia/openldap:1.4.0
+    container_name: openldap
+    environment:
+      LDAP_LOG_LEVEL: "256"
+      LDAP_ORGANISATION: "Pirates de Catalunya"
+      LDAP_DOMAIN: "pirata.cat"
+      LDAP_BASE_DN: ""
+      LDAP_ADMIN_PASSWORD: "admin"
+      LDAP_CONFIG_PASSWORD: "config"
+      LDAP_READONLY_USER: "false"
+      #LDAP_READONLY_USER_USERNAME: "readonly"
+      #LDAP_READONLY_USER_PASSWORD: "readonly"
+      LDAP_RFC2307BIS_SCHEMA: "false"
+      LDAP_BACKEND: "mdb"
+      LDAP_TLS: "true"
+      LDAP_TLS_CRT_FILENAME: "ldap.crt"
+      LDAP_TLS_KEY_FILENAME: "ldap.key"
+      LDAP_TLS_DH_PARAM_FILENAME: "dhparam.pem"
+      LDAP_TLS_CA_CRT_FILENAME: "ca.crt"
+      LDAP_TLS_ENFORCE: "false"
+      LDAP_TLS_CIPHER_SUITE: "SECURE256:-VERS-SSL3.0"
+      LDAP_TLS_VERIFY_CLIENT: "demand"
+      LDAP_REPLICATION: "false"
+      #LDAP_REPLICATION_CONFIG_SYNCPROV: "binddn="cn=admin,cn=config" bindmethod=simple credentials=$$LDAP_CONFIG_PASSWORD searchbase="cn=config" type=refreshAndPersist retry="60 +" timeout=1 starttls=critical"
+      #LDAP_REPLICATION_DB_SYNCPROV: "binddn="cn=admin,$$LDAP_BASE_DN" bindmethod=simple credentials=$$LDAP_ADMIN_PASSWORD searchbase="$$LDAP_BASE_DN" type=refreshAndPersist interval=00:00:00:10 retry="60 +" timeout=1 starttls=critical"
+      #LDAP_REPLICATION_HOSTS: "#PYTHON2BASH:['ldap://ldap.example.org','ldap://ldap2.example.org']"
+      KEEP_EXISTING_CONFIG: "false"
+      LDAP_REMOVE_CONFIG_AFTER_SETUP: "true"
+      LDAP_SSL_HELPER_PREFIX: "ldap"
+    tty: true
+    stdin_open: true
+    volumes:
+      - /var/lib/ldap
+      - /etc/ldap/slapd.d
+      - /container/service/slapd/assets/certs/
+    ports:
+      - "389:389"
+      - "636:636"
+  ldapadmin:
+    # https://github.com/osixia/docker-phpLDAPadmin
+    image: osixia/phpldapadmin:0.9.0
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: ldap
+    ports:
+      - 9876:443
+
+volumes:
+  postgres_data:
+  # ldap_data:
+  # ldap_config:

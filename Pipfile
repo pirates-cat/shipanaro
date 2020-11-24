@@ -22,3 +22,6 @@ flake8 = "*"
 [packages.django-phonenumber-field]
 extras = [ "phonenumbers",]
 version = "==4.0.0."
+
+[packages.environs]
+extras = [ "django",]

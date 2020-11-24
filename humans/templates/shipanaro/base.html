@@ -1,21 +1,25 @@
-{% extends 'shipanaro/base.html' %} {% load i18n static %} {% block extrastyle
-%}
+{% extends 'shipanaro/base.html' %}
+{% load i18n static %}
+{% block extrastyle %}
 <link
   href="https://fonts.googleapis.com/css?family=Open+Sans"
   rel="stylesheet"
 />
 <link rel="stylesheet" href="{% static 'humans/css/pirates.css' %}" />
-{% endblock %} {% block extrahead %}
+{% endblock %}
+{% block extrahead %}
 <link
   rel="shortcut icon"
   href="{% static 'humans/images/favicon.png' %}"
   type="image/png"
 />
-{% endblock %} {% block branding %}
+{% endblock %}
+{% block branding %}
 <a class="navbar-brand" href="{% url 'index' %}">
   <img src="{% static 'humans/images/logo.png' %}" alt="{{ site_title }}" />
 </a>
-{% endblock %} {% block extranav %}
+{% endblock %}
+{% block extranav %}
 <li class="nav-item">
   <a
     class="nav-link"
