@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SHIPANARO_SECRET_KEY")
+SECRET_KEY = env("SHIPANARO_SECRET_KEY", "notsecret")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("SHIPANARO_DEBUG")
+DEBUG = env.bool("SHIPANARO_DEBUG", False)
 
 ALLOWED_HOSTS = env("SHIPANARO_ALLOWED_HOSTS", "tripulacio.pirates.cat").split(",")
 
@@ -85,9 +85,7 @@ WSGI_APPLICATION = "shipanaro.wsgi.application"
 
 # Prod: set env var SHIPANARO_DATABASE_URL=postgres://shipanaro:<password>@<host>/shipanaro
 DATABASES = {
-    "default": env.dj_db_url(
-        "SHIPANARO_DATABASE_URL", default=""
-    )
+    "default": env.dj_db_url("SHIPANARO_DATABASE_URL", default="sqlite://db.sqlite")
 }
 
 AUTHENTICATION_BACKENDS = [

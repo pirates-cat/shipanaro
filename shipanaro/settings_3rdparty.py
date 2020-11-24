@@ -19,7 +19,7 @@ PHONENUMBER_DB_FORMAT = "INTERNATIONAL"
 # TODO: get from env var to facilitate local testing
 AUTH_LDAP_SERVER_URI = env("SHIPANARO_LDAP_URL", "ldap://10.0.0.15")
 AUTH_LDAP_BIND_DN = env("SHIPANARO_LDAP_BIND_DN", "cn=Manager,dc=pirata,dc=cat")
-AUTH_LDAP_BIND_PASSWORD = env("SHIPANARO_LDAP_BIND_PASSWORD")
+AUTH_LDAP_BIND_PASSWORD = env("SHIPANARO_LDAP_BIND_PASSWORD", "admin")
 AUTH_LDAP_USER_SEARCH = LDAPSearch(
     "dc=pirata,dc=cat", ldap.SCOPE_SUBTREE, "(&(objectclass=pilotPerson)(uid=%(user)s))"
 )

@@ -21,7 +21,7 @@ jobs:
           python-version: 3.8
       - name: Install dependencies
         run: |
-          sudo apt install build-essential python3-dev libldap2-dev libsasl2-dev
+          sudo apt-get update && sudo apt-get install build-essential python3-dev libldap2-dev libsasl2-dev
           pip install pipenv
           pipenv install -d
       - name: Lint with flake8
