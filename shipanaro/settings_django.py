@@ -1,6 +1,11 @@
 import os
 import sys
 
+from environs import Env
+
+env = Env()
+env.read_env()
+
 testing = "test" in sys.argv
 
 if testing:
@@ -15,18 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = (
-    os.getenv("SHIPANARO_SECRET_KEY")
-    or "$e(u0!808ht4^aw9d6e!&=v!19wvg0cam!^in&w#)yt&=zyi+l"
-)
+SECRET_KEY = env("SHIPANARO_SECRET_KEY", "notsecret")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("SHIPANARO_DEBUG") == "true"
+DEBUG = env.bool("SHIPANARO_DEBUG", False)
 
-ALLOWED_HOSTS = [
-    # TODO: local override with env var
-    "tripulacio.pirates.cat",
-]
+ALLOWED_HOSTS = env("SHIPANARO_ALLOWED_HOSTS", "tripulacio.pirates.cat").split(",")
 
 ADMINS = [
     ("Dario", "dario@pirates.cat"),
@@ -84,24 +83,11 @@ WSGI_APPLICATION = "shipanaro.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# Prod: set env var SHIPANARO_DATABASE_URL=postgres://shipanaro:<password>@<host>/shipanaro
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
+    "default": env.dj_db_url("SHIPANARO_DATABASE_URL", default="sqlite://db.sqlite")
 }
 
-# TODO: prod, from env var?
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'shipanaro',
-#         'USER': 'shipanaro',
-#     }
-# }
-
-
-# TODO: override locally with []?
 AUTHENTICATION_BACKENDS = [
     "django_auth_ldap.backend.LDAPBackend",
 ]

@@ -52,6 +52,14 @@ You can create a membership for your user account via the admin
 and browse to the [profile page](http://localhost:8000/accounts/profile/)
 to edit your membership (this is the end user-facing page).
 
+### LDAP
+
+Once you have the containers running you can run LDAP commands:
+
+```
+docker-compose exec ldap ldapsearch -x -H ldap://localhost -b dc=pirata,dc=cat -D "cn=admin,dc=pirata,dc=cat" -w admin
+```
+
 ## Front-end build
 
 ```bash
