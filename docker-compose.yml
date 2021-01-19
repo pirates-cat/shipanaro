@@ -4,7 +4,7 @@ services:
     build: .
     command: python /code/manage.py runserver 0.0.0.0:8000
     environment:
-      SHIPANARO_SECRET_KEY: "$$e(u0!808ht4^aw9d6e!&=v!19wvg0cam!^in&w#)yt&=zyi+l"
+      SHIPANARO_SECRET_KEY: '$$e(u0!808ht4^aw9d6e!&=v!19wvg0cam!^in&w#)yt&=zyi+l'
       SHIPANARO_DEBUG: "True"
       SHIPANARO_EMAIL_URL: "${SHIPANARO_EMAIL_URL:-console://}"
       SHIPANARO_ALLOWED_HOSTS: "0.0.0.0,localhost,127.0.0.1"
@@ -12,19 +12,22 @@ services:
       SHIPANARO_LDAP_URL: "ldap://ldap"
       SHIPANARO_LDAP_BIND_DN: "cn=admin,dc=pirata,dc=cat"
       SHIPANARO_LDAP_BIND_PASSWORD: "admin"
-    volumes:
-      - .:/code
+      SHIPANARO_LDAP_USER_SEARCH: '(&(objectclass=inetOrgPerson)(uid=%(user)s))'
     ports:
       - 8000:8000
+    volumes:
+      - .:/code
     depends_on:
       - db
       - ldap
   db:
     image: postgres:11
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
   ldap:
     # https://github.com/osixia/docker-openldap
     # https://github.com/osixia/docker-openldap/blob/stable/example/docker-compose.yml
@@ -59,13 +62,13 @@ services:
       LDAP_SSL_HELPER_PREFIX: "ldap"
     tty: true
     stdin_open: true
-    volumes:
-      - /var/lib/ldap
-      - /etc/ldap/slapd.d
-      - /container/service/slapd/assets/certs/
     ports:
       - "389:389"
       - "636:636"
+    volumes:
+      - ldap_data:/var/lib/ldap
+      - ldap_config:/etc/ldap/slapd.d
+      - ldap_certs:/container/service/slapd/assets/certs/
   ldapadmin:
     # https://github.com/osixia/docker-phpLDAPadmin
     image: osixia/phpldapadmin:0.9.0
@@ -76,5 +79,6 @@ services:
 
 volumes:
   postgres_data:
-  # ldap_data:
-  # ldap_config:
+  ldap_data:
+  ldap_config:
+  ldap_certs:
