@@ -21,7 +21,9 @@ AUTH_LDAP_SERVER_URI = env("SHIPANARO_LDAP_URL", "ldap://10.0.0.15")
 AUTH_LDAP_BIND_DN = env("SHIPANARO_LDAP_BIND_DN", "cn=Manager,dc=pirata,dc=cat")
 AUTH_LDAP_BIND_PASSWORD = env("SHIPANARO_LDAP_BIND_PASSWORD", "admin")
 AUTH_LDAP_USER_SEARCH = LDAPSearch(
-    "dc=pirata,dc=cat", ldap.SCOPE_SUBTREE, "(&(objectclass=pilotPerson)(uid=%(user)s))"
+    "dc=pirata,dc=cat",
+    ldap.SCOPE_SUBTREE,
+    env("SHIPANARO_LDAP_USER_SEARCH", "(&(objectclass=pilotPerson)(uid=%(user)s))"),
 )
 AUTH_LDAP_GROUP_SEARCH = LDAPSearch(
     "dc=pirata,dc=cat", ldap.SCOPE_SUBTREE, "(objectclass=posixGroup)"

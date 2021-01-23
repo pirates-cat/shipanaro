@@ -9,7 +9,13 @@ env.read_env()
 testing = "test" in sys.argv
 
 if testing:
-    MIGRATION_MODULES = {"admin": None}
+    MIGRATION_MODULES = {
+        "admin": None,
+        "auth": None,
+        "humans": None,
+        "shipanaro": None,
+        "contenttypes": None,
+    }
 
 # from django.utils.translation import ugettext as _
 
