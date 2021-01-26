@@ -26,5 +26,12 @@ collected: static
 ldap-list:
 	docker-compose exec ldap ldapsearch -x -H ldap://localhost -b dc=pirata,dc=cat -D "cn=admin,dc=pirata,dc=cat" -w admin
 
+i18n:
+	./indocker.sh ./manage.py makemessages --locale ca
+	@echo "Please edit locale/ca/LC_MESSAGES/django.po to add new translations"
+
+i18n-compile:
+	./indocker.sh ./manage.py compilemessages
+	docker-compose restart web
 
 .PHONY: init-data clean-data lint run stop test ldap-test
