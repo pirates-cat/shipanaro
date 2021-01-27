@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-21 07:41+0000\n"
+"POT-Creation-Date: 2021-01-26 18:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,28 +18,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: humans/templates/shipanaro/index.html:5 shipanaro/admin.py:98
+#: humans/templates/shipanaro/base.html:27
+#: humans/templates/shipanaro/base.html:29
 msgid "Contacte"
 msgstr "Contacte"
 
-#: humans/templates/shipanaro/index.html:13
+#: humans/templates/shipanaro/index.html:6
 msgid "Web"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:14
+#: humans/templates/shipanaro/index.html:8
 msgid "Pàgina oficial del partit. Inclou el bloc i l'ideari del partit."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:15
-#: humans/templates/shipanaro/index.html:40
-#: humans/templates/shipanaro/index.html:49
-#: humans/templates/shipanaro/index.html:60
-#: humans/templates/shipanaro/index.html:81
-#: humans/templates/shipanaro/index.html:90
+#: humans/templates/shipanaro/index.html:11
+#: humans/templates/shipanaro/index.html:75
+#: humans/templates/shipanaro/index.html:88
+#: humans/templates/shipanaro/index.html:99
+#: humans/templates/shipanaro/index.html:112
+#: humans/templates/shipanaro/index.html:123
 msgid "Go"
-msgstr ""
+msgstr "Anar-hi"
 
-#: humans/templates/shipanaro/index.html:16
+#: humans/templates/shipanaro/index.html:14
 msgid "Bloc"
 msgstr ""
 
@@ -47,93 +48,91 @@ msgstr ""
 msgid "Ideari"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:24
+#: humans/templates/shipanaro/index.html:25
 msgid "Xarxes socials"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:25
+#: humans/templates/shipanaro/index.html:27
 msgid "Troba'ns a les xarxes i comparteix el que hi publiquem."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:26
+#: humans/templates/shipanaro/index.html:32
 msgid "Mastodon"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:27
+#: humans/templates/shipanaro/index.html:38
 msgid "Twitter"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:28
+#: humans/templates/shipanaro/index.html:44
 msgid "Facebook"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:29
+#: humans/templates/shipanaro/index.html:47
 msgid "Instagram"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:38
+#: humans/templates/shipanaro/index.html:58
 msgid "Sistema de Participació"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:39
+#: humans/templates/shipanaro/index.html:59
 msgid "Sistema de votació del partit."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:47
+#: humans/templates/shipanaro/index.html:61
+msgid "New"
+msgstr "Nou"
+
+#: humans/templates/shipanaro/index.html:64
+msgid "Old"
+msgstr "Antic"
+
+#: humans/templates/shipanaro/index.html:72
 msgid "Pads"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:48
+#: humans/templates/shipanaro/index.html:73
 msgid "Eina col·laborativa d'edició de textos"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:58
+#: humans/templates/shipanaro/index.html:85
 msgid "Llistes de correu"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:59
+#: humans/templates/shipanaro/index.html:86
 msgid "Eina de comunicació de grups per correu electrònic."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:67
+#: humans/templates/shipanaro/index.html:96
 msgid "Xat"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:68
+#: humans/templates/shipanaro/index.html:97
 msgid "Eina de missatgeria instantània per a grups."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:69
-msgid "Grup de notificacions"
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:69
-msgid "Assemblea"
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:70
-msgid "Grup de conversa sense restriccions"
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:70
-msgid "Discussió"
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:79
+#: humans/templates/shipanaro/index.html:109
 msgid "Wiki"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:80
+#: humans/templates/shipanaro/index.html:110
 msgid "Wiki del partit."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:88
+#: humans/templates/shipanaro/index.html:120
 msgid "Cloud"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:89
+#: humans/templates/shipanaro/index.html:121
 msgid "Repositori de fitxers i documents."
 msgstr ""
+
+#: shipanaro/admin.py:98
+#, fuzzy
+#| msgid "Contacte"
+msgid "Contact"
+msgstr "Contacte"
 
 #: shipanaro/admin.py:107
 msgid "Address"
@@ -151,13 +150,13 @@ msgstr ""
 msgid "Legacy"
 msgstr ""
 
-#: shipanaro/auth/views.py:27 shipanaro/templates/registration/login.html:7
+#: shipanaro/auth/views.py:33 shipanaro/templates/registration/login.html:9
 #: shipanaro/templates/registration/password_reset_complete.html:5
 #: shipanaro/templates/shipanaro/base.html:33
 msgid "Log in"
 msgstr ""
 
-#: shipanaro/auth/views.py:93
+#: shipanaro/auth/views.py:109
 msgid "Personal info"
 msgstr ""
 
@@ -189,7 +188,7 @@ msgstr ""
 msgid "Newsletter"
 msgstr ""
 
-#: shipanaro/templates/registration/login.html:9
+#: shipanaro/templates/registration/login.html:12
 msgid "Password reset"
 msgstr ""
 
@@ -203,11 +202,11 @@ msgid ""
 "correctly."
 msgstr ""
 
-#: shipanaro/templates/registration/password_reset_confirm.html:9
+#: shipanaro/templates/registration/password_reset_confirm.html:10
 msgid "Change my password"
 msgstr ""
 
-#: shipanaro/templates/registration/password_reset_confirm.html:12
+#: shipanaro/templates/registration/password_reset_confirm.html:14
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
@@ -255,12 +254,16 @@ msgid ""
 "instructions for setting a new one."
 msgstr ""
 
-#: shipanaro/templates/registration/password_reset_form.html:8
+#: shipanaro/templates/registration/password_reset_form.html:9
 msgid "Reset my password"
 msgstr ""
 
-#: shipanaro/templates/registration/profile.html:7
+#: shipanaro/templates/registration/profile.html:13
 msgid "Submit"
+msgstr ""
+
+#: shipanaro/templates/registration/profile.html:18
+msgid "Cancel membership"
 msgstr ""
 
 #: shipanaro/templates/shipanaro/base.html:26

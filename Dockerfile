@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /code
 
 # OS-level dependencies (required for LDAP)
-RUN apt-get update && apt-get install -y build-essential python3-dev libldap2-dev libsasl2-dev
+RUN apt-get update && apt-get install -y build-essential python3-dev libldap2-dev libsasl2-dev gettext
 
 # Install dependencies
 COPY Pipfile Pipfile.lock /code/
