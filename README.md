@@ -58,12 +58,18 @@ In order to get access to the Django admin site, you need to make this new user 
 Open the django shell using:
 
     make shell
-    >> from django.contrib.auth import get_user_model
-    >>> User = get_user_model()
-    >>> me = User.objects.get()
-    >>> me.is_staff = True
-    >>> me.is_superuser = True
-    >>> me.save()
+
+Within the shell:
+
+```python
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+me = User.objects.get(username="txels")
+me.is_staff = True
+me.is_superuser = True
+me.save()
+```
 
 You can now browse to `http://localhost:8000/__capitania__/` which is the URL of
 the django admin.

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ldapadmin
+  name: ldapadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ldapadmin
+  template:
+    metadata:
+      labels:
+        app: ldapadmin
+    spec:
+      containers:
+        - env:
+            - name: PHPLDAPADMIN_LDAP_HOSTS
+              value: openldap
+          image: osixia/phpldapadmin:0.9.0
+          name: ldapadmin
+          ports:
+            - containerPort: 443
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 200m
+              memory: 500Mi
+      restartPolicy: Always

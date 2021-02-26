@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipanaro
+  labels:
+    system: pirates
+spec:
+  replicas: 1
+  revisionHistoryLimit: 4
+  selector:
+    matchLabels:
+      app: shipanaro
+  template:
+    metadata:
+      labels:
+        app: shipanaro
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: shipanaro
+          # TODO: use versioning and IfNotPresent
+          image: piratescat/shipanaro:latest
+          # imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
+          env:
+            - name: SHIPANARO_ALLOWED_HOSTS
+              # TODO: find right setting for k8s probes
+              value: "*"
+            - name: SHIPANARO_DEBUG
+              value: "False"
+            - name: SHIPANARO_DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: shipanaro-secrets
+                  key: database_url
+            - name: SHIPANARO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: shipanaro-secrets
+                  key: secret_key
+            - name: SHIPANARO_EMAIL_URL
+              valueFrom:
+                secretKeyRef:
+                  name: shipanaro-secrets
+                  key: email_url
+            - name: SHIPANARO_LDAP_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ldap-secrets
+                  key: url  # "ldap://openldap"
+            - name: SHIPANARO_LDAP_BIND_DN
+              valueFrom:
+                secretKeyRef:
+                  name: ldap-secrets
+                  key: user_dn  # "cn=admin,dc=pirata,dc=cat"
+            - name: SHIPANARO_LDAP_BIND_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ldap-secrets
+                  key: password
+            - name: SHIPANARO_LDAP_USER_SEARCH
+              value: '(&(objectclass=inetOrgPerson)(uid=%(user)s))'
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: 200m
+              memory: 400Mi
+            limits:
+              cpu: 500m
+              memory: 1000Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 3
+            periodSeconds: 3
