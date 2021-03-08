@@ -1,3 +1,6 @@
+IMAGE=shipanaro
+VERSION?=latest
+
 init-data:
 	./indocker.sh ./manage.py migrate humans
 	./indocker.sh ./manage.py migrate
@@ -33,5 +36,15 @@ i18n:
 i18n-compile:
 	./indocker.sh ./manage.py compilemessages
 	docker-compose restart web
+
+package:
+	docker build -t ${IMAGE}:${VERSION} .
+
+publish:
+	docker tag ${IMAGE}:${VERSION} piratescat/${IMAGE}:${VERSION}
+	docker push piratescat/${IMAGE}:${VERSION}
+
+k8s-restart:
+	kubectl rollout restart deploy/${IMAGE}
 
 .PHONY: init-data clean-data lint run stop test ldap-test
