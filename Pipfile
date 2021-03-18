@@ -4,7 +4,7 @@ url = "https://pypi.org/simple"
 name = "pypi"
 
 [packages]
-Django = "==3.1.2"
+Django = "==3.1.6"
 django-admin-list-filter-dropdown = "==1.0.3"
 django-admin-rangefilter = "==0.6.2"
 django-auth-ldap = "==2.2.0"
