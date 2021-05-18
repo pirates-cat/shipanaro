@@ -10,19 +10,15 @@ django-admin-rangefilter = "==0.6.2"
 django-auth-ldap = "==2.2.0"
 django-bootstrap4 = "==2.2.0"
 django-export-action = "==0.1.1"
+django-hashers-passlib = "*"
+django-phonenumber-field = {extras = [ "phonenumbers",], version = "==4.0.0."}
+environs = {extras = [ "django",]}
 gunicorn = "*"
 psycopg2-binary = "==2.8.6"
 pytz = "==2020.1"
-django-hashers-passlib = "*"
 
 [dev-packages]
 wheel = "*"
 Fabric3 = "*"
 flake8 = "*"
 
-[packages.django-phonenumber-field]
-extras = [ "phonenumbers",]
-version = "==4.0.0."
-
-[packages.environs]
-extras = [ "django",]

@@ -15,7 +15,7 @@ lint:
 	black .
 
 run: stop
-	docker-compose up --detach --build
+	docker-compose up --build
 
 stop:
 	docker-compose down
