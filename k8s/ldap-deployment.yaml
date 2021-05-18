@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ldap
+  name: ldap
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ldap
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: ldap
+    spec:
+      containers:
+        - env:
+            - name: KEEP_EXISTING_CONFIG
+              value: "false"
+            - name: LDAP_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ldap-secrets
+                  key: password
+            - name: LDAP_BACKEND
+              value: mdb
+            - name: LDAP_BASE_DN
+            - name: LDAP_CONFIG_PASSWORD
+              value: config
+            - name: LDAP_DOMAIN
+              value: pirata.cat
+            - name: LDAP_LOG_LEVEL
+              value: "256"
+            - name: LDAP_ORGANISATION
+              value: Pirates de Catalunya
+            - name: LDAP_READONLY_USER
+              value: "false"
+            - name: LDAP_REMOVE_CONFIG_AFTER_SETUP
+              value: "true"
+            - name: LDAP_REPLICATION
+              value: "false"
+            - name: LDAP_RFC2307BIS_SCHEMA
+              value: "false"
+            - name: LDAP_SSL_HELPER_PREFIX
+              value: ldap
+            - name: LDAP_TLS
+              value: "true"
+            - name: LDAP_TLS_CA_CRT_FILENAME
+              value: ca.crt
+            - name: LDAP_TLS_CIPHER_SUITE
+              value: SECURE256:-VERS-SSL3.0
+            - name: LDAP_TLS_CRT_FILENAME
+              value: ldap.crt
+            - name: LDAP_TLS_DH_PARAM_FILENAME
+              value: dhparam.pem
+            - name: LDAP_TLS_ENFORCE
+              value: "false"
+            - name: LDAP_TLS_KEY_FILENAME
+              value: ldap.key
+            - name: LDAP_TLS_VERIFY_CLIENT
+              value: demand
+          image: osixia/openldap:1.4.0
+          name: openldap
+          ports:
+            - containerPort: 389
+            - containerPort: 636
+          resources:
+            requests:
+              cpu: 200m
+              memory: 200Mi
+            limits:
+              cpu: 500m
+              memory: 800Mi
+          volumeMounts:
+            - mountPath: /var/lib/ldap
+              name: ldap-data
+            - mountPath: /etc/ldap/slapd.d
+              name: ldap-config
+            - mountPath: /container/service/slapd/assets/certs/
+              name: ldap-certs
+      restartPolicy: Always
+      volumes:
+        - name: ldap-data
+          persistentVolumeClaim:
+            claimName: ldap-data
+        - name: ldap-config
+          persistentVolumeClaim:
+            claimName: ldap-config
+        - name: ldap-certs
+          persistentVolumeClaim:
+            claimName: ldap-certs
