@@ -1,5 +1,6 @@
 from django.conf import settings
-from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.contrib.auth import REDIRECT_FIELD_NAME, update_session_auth_hash
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import (
     LoginView,
@@ -12,11 +13,16 @@ from django.contrib.auth.views import (
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
+from django.utils.decorators import method_decorator
 from django.utils.module_loading import import_string
 from django.utils.translation import gettext as _
 from django.views.decorators.cache import never_cache
-from django.views.generic.edit import UpdateView
-from shipanaro.auth.forms import MembershipForm
+from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.debug import sensitive_post_parameters
+from django.views.generic.edit import FormView, UpdateView
+
+
+from shipanaro.auth.forms import MembershipForm, PasswordChangeForm
 from shipanaro.models import Membership
 from shipanaro.views import view_defaults
 
@@ -93,6 +99,31 @@ def password_reset_confirm(request, uidb64, token, extra_context=None):
 @never_cache
 def password_reset_complete(request, extra_context=None):
     return PasswordResetCompleteView.as_view(**view_defaults())(request)
+
+
+class PasswordChangeView(FormView):
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy("password_change_done")
+    template_name = "registration/password_change_form.html"
+    title = _("Password change")
+
+    @method_decorator(sensitive_post_parameters())
+    @method_decorator(csrf_protect)
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["user"] = self.request.user
+        return kwargs
+
+    def form_valid(self, form):
+        form.save()
+        # Updating the password logs out all other sessions for the user
+        # except the current one.
+        update_session_auth_hash(self.request, form.user)
+        return super().form_valid(form)
 
 
 class MembershipView(SuccessMessageMixin, UpdateView):

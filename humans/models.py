@@ -15,8 +15,8 @@ class User(AbstractUser):
             self.__ldap__set_password(password)
 
     def __ldap__save(self):
-        # ldap_user = _LDAPUser(LDAPBackend(), username=)
-        # l = ldap_user.connection
+        # ldap_user = _LDAPUser(LDAPBackend(), username=self.username)
+        # conn = ldap_user.connection
         return
 
     def __ldap__set_password(self, password):

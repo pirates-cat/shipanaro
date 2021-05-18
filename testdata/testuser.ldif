@@ -1,0 +1,16 @@
+# Add with ldapadd -x -H ldap://ldap -D "cn=admin,dc=pirata,dc=cat" -f testuser.ldif -W
+version: 1
+
+dn: cn=tester,dc=pirata,dc=cat
+cn: Tester
+gidnumber: 500
+givenname: Tester
+homedirectory: /home/tester
+objectclass: inetOrgPerson
+objectclass: posixAccount
+objectclass: top
+sn: Tester
+uid: tester
+uidnumber: 2000
+# b64encode(md5("tester".encode("utf-8")).digest())
+userpassword: {MD5}9dEnjoEJ7dlOHkGX4EhzuQ==
