@@ -22,16 +22,26 @@
 				<ul class="navbar-nav ml-auto">
 					{% block extranav %}{% endblock %}
 					{% if user.is_authenticated %}
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'admin:index' %}" title="{% trans 'Administration' %}"><i class="fas fa-toolbox mr-2"></i><span class="d-lg-none">{% trans 'Administration' %}</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'logout' %}" title="{% trans 'Log out' %}"><i class="fas fa-sign-out-alt mr-2"></i><span class="d-lg-none">{% trans 'Log out' %}</span></a>
-					</li>
+						{% if user.is_staff %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'admin:index' %}" title="{% trans 'Administration' %}"><i class="fas fa-toolbox mr-2"></i><span class="d-lg-none">{% trans 'Administration' %}</span></a>
+							</li>
+						{% endif %}
+						{% if user.membership %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'profile' %}" title="{% trans 'My Account' %}"><i class="fas fa-user mr-2"></i><span class="d-lg-none">{% trans 'My Account' %}</span></a>
+							</li>
+						{% endif %}
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'password_change' %}" title="{% trans 'Change Password' %}"><i class="fas fa-lock mr-2"></i><span class="d-lg-none">{% trans 'Change Password' %}</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'logout' %}" title="{% trans 'Log out' %}"><i class="fas fa-sign-out-alt mr-2"></i><span class="d-lg-none">{% trans 'Log out' %}</span></a>
+						</li>
 					{% else %}
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'login' %}" title="{% trans 'Log in' %}"><i class="fas fa-sign-in-alt mr-2"></i><span class="d-lg-none">{% trans 'Log in' %}</span></a>
-					</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'login' %}" title="{% trans 'Log in' %}"><i class="fas fa-sign-in-alt mr-2"></i><span class="d-lg-none">{% trans 'Log in' %}</span></a>
+						</li>
 					{% endif %}
 				</ul>
 			</nav>

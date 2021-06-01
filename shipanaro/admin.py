@@ -16,8 +16,14 @@ class ShipanaroModelAdmin(ModelAdmin):
 
 
 class ShipanaroUserAdmin(UserAdmin, ShipanaroModelAdmin):
-    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff',
-                    'is_active')
+    list_display = (
+        "username",
+        "email",
+        "first_name",
+        "last_name",
+        "is_staff",
+        "is_active",
+    )
 
 
 try:
@@ -40,100 +46,99 @@ admin.site.register(Group, ShipanaroGroupAdmin)
 
 class MembershipAdmin(ShipanaroModelAdmin):
     list_display = (
-        'uid',
-        'user__last_name',
-        'user__first_name',
-        'user__username',
-        'user__email',
-        'birthday',
+        "uid",
+        "user__last_name",
+        "user__first_name",
+        "user__username",
+        "user__email",
+        "birthday",
         # 'assigned_sex',
-        'gender',
-        'phone',
+        "gender",
+        "phone",
         # 'phone_2',
         # 'user__date_joined',
         # 'date_left',
-        'nid',
+        "nid",
         # 'nid_type',
-        'province',
-        'city',
+        "province",
+        "city",
         # 'address',
         # 'nationality',
         # 'notes',
-        'postal_code',
-        'drop_out',
+        "postal_code",
+        "drop_out",
     )
-    ordering = ('-uid', )
+    ordering = ("-uid",)
     list_filter = (
-        'drop_out',
-        ('postal_code', DropdownFilter),
-        'gender',
-        ('user__date_joined', DateRangeFilter),
-        ('birthday', DateRangeFilter),
-        'province',
+        "drop_out",
+        ("postal_code", DropdownFilter),
+        "gender",
+        ("user__date_joined", DateRangeFilter),
+        ("birthday", DateRangeFilter),
+        "province",
     )
     search_fields = (
-        'user__last_name',
-        'user__first_name',
-        'user__username',
-        'user__email',
+        "user__last_name",
+        "user__first_name",
+        "user__username",
+        "user__email",
     )
     fieldsets = (
-        (None, {
-            'fields': (
-                'user',
-                'uid',
-                'birthday',
-                'nationality',
-                (
-                    'nid_type',
-                    'nid',
-                ),
-                (
-                    'assigned_sex',
-                    'gender',
-                ),
-            ),
-        }),
         (
-            _('Contact'),
+            None,
             {
-                'fields': (
-                    'phone',
-                    'phone_2',
-                )
-            },
-        ),
-        (
-            _('Address'),
-            {
-                'fields': (
-                    'address',
+                "fields": (
+                    "user",
+                    "uid",
+                    "birthday",
+                    "nationality",
                     (
-                        'postal_code',
-                        'city',
+                        "nid_type",
+                        "nid",
                     ),
-                    'province',
+                    (
+                        "assigned_sex",
+                        "gender",
+                    ),
+                ),
+            },
+        ),
+        (
+            _("Contact"),
+            {
+                "fields": (
+                    "phone",
+                    "phone_2",
                 )
             },
         ),
         (
-            _('Status'),
+            _("Address"),
             {
-                'fields': (
-                    'date_left',
-                    'drop_out',
+                "fields": (
+                    "address",
+                    (
+                        "postal_code",
+                        "city",
+                    ),
+                    "province",
                 )
             },
         ),
         (
-            _('Notes'),
+            _("Status"),
             {
-                'fields': ('notes', )
+                "fields": (
+                    "date_left",
+                    "drop_out",
+                )
             },
         ),
-        (_('Legacy'), {
-            'fields': ('contact_id', )
-        }),
+        (
+            _("Notes"),
+            {"fields": ("notes",)},
+        ),
+        (_("Legacy"), {"fields": ("contact_id",)}),
     )
 
     def user__first_name(self, m):
@@ -159,7 +164,7 @@ admin.site.register(Membership, MembershipAdmin)
 
 
 class SubscriptionAdmin(ShipanaroModelAdmin):
-    search_fields = ('endpoint', )
+    search_fields = ("endpoint",)
 
 
 admin.site.register(Subscription, SubscriptionAdmin)
