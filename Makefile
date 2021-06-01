@@ -40,7 +40,7 @@ i18n:
 	@echo "Please edit locale/ca/LC_MESSAGES/django.po to add new translations"
 
 i18n-compile:
-	./indocker.sh ./manage.py compilemessages
+	./indocker.sh ./manage.py compilemessages --ignore .venv
 	docker-compose restart web
 
 package:

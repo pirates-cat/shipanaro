@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from shipanaro.auth.models import User, Group
 
 # Based on ISO 5218
@@ -27,8 +27,8 @@ GENDERS = (
 
 NIDS = (
     (7240, _("Passport")),
-    (7241, "Documento Nacional de Identidad"),
-    (7242, "Número de Identificación de Extranjeros"),
+    (7241, _("Documento Nacional de Identidad")),
+    (7242, _("Número de Identificación de Extranjeros")),
     (0, _("Unknown")),
 )
 
@@ -36,21 +36,61 @@ NIDS = (
 class Membership(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     uid = models.IntegerField()
-    assigned_sex = models.IntegerField(choices=SEXES)
-    gender = models.IntegerField(choices=GENDERS)
-    gender_custom = models.CharField(max_length=40, blank=True, null=True)
-    birthday = models.DateField()
-    nationality = models.CharField(max_length=20)
+    assigned_sex = models.IntegerField(
+        verbose_name=_("Assigned sex"),
+        choices=SEXES,
+    )
+    gender = models.IntegerField(
+        verbose_name=_("Gender"),
+        choices=GENDERS,
+    )
+    gender_custom = models.CharField(
+        verbose_name=_("Custom Gender"),
+        max_length=40,
+        blank=True,
+        null=True,
+    )
+    birthday = models.DateField(
+        verbose_name=_("Birthday"),
+    )
+    nationality = models.CharField(
+        verbose_name=_("Nationality"),
+        max_length=20,
+    )
     nid = models.CharField(max_length=50)
     nid_type = models.IntegerField(choices=NIDS)
-    address = models.CharField(max_length=140)
-    city = models.CharField(max_length=70)
-    postal_code = models.CharField(max_length=20)
-    province = models.CharField(max_length=70)
-    phone = models.CharField(max_length=20)
-    phone_2 = models.CharField(max_length=20, blank=True)
-    notes = models.TextField(blank=True)
-    contact_id = models.CharField(max_length=9)
+    address = models.CharField(
+        verbose_name=_("Address"),
+        max_length=140,
+    )
+    city = models.CharField(
+        verbose_name=_("City"),
+        max_length=70,
+    )
+    postal_code = models.CharField(
+        verbose_name=_("Postcode"),
+        max_length=20,
+    )
+    province = models.CharField(
+        verbose_name=_("Province"),
+        max_length=70,
+    )
+    phone = models.CharField(
+        verbose_name=_("Phone"),
+        max_length=20,
+    )
+    phone_2 = models.CharField(
+        verbose_name=_("Phone 2"),
+        max_length=20,
+        blank=True,
+    )
+    notes = models.TextField(
+        verbose_name=_("Notes"),
+        blank=True,
+    )
+    contact_id = models.CharField(
+        max_length=9,
+    )
     date_left = models.DateField(null=True, blank=True)
     drop_out = models.BooleanField(default=False)
     # membership applications pending acceptance
