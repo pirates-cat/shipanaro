@@ -1,7 +1,4 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-
-name: Python application
+name: Shipanaro backend
 
 on:
   push:
@@ -12,6 +9,46 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
+
+    services:
+      postgres:
+        image: postgres:11
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      ldap:
+        # https://github.com/osixia/docker-openldap
+        # https://github.com/osixia/docker-openldap/blob/stable/example/docker-compose.yml
+        image: osixia/openldap:1.4.0
+        env:
+          LDAP_LOG_LEVEL: "256"
+          LDAP_ORGANISATION: "Pirates de Catalunya"
+          LDAP_DOMAIN: "pirata.cat"
+          LDAP_BASE_DN: ""
+          LDAP_ADMIN_PASSWORD: "admin"
+          LDAP_CONFIG_PASSWORD: "config"
+          LDAP_READONLY_USER: "false"
+          LDAP_RFC2307BIS_SCHEMA: "false"
+          LDAP_TLS: "true"
+          LDAP_TLS_CRT_FILENAME: "ldap.crt"
+          LDAP_TLS_KEY_FILENAME: "ldap.key"
+          LDAP_TLS_DH_PARAM_FILENAME: "dhparam.pem"
+          LDAP_TLS_CA_CRT_FILENAME: "ca.crt"
+          LDAP_TLS_ENFORCE: "false"
+          LDAP_TLS_CIPHER_SUITE: "SECURE256:-VERS-SSL3.0"
+          LDAP_TLS_VERIFY_CLIENT: "demand"
+          LDAP_SSL_HELPER_PREFIX: "ldap"
+        ports:
+          - "389:389"
+          - "636:636"
 
     steps:
       - uses: actions/checkout@v2
@@ -31,5 +68,12 @@ jobs:
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           pipenv run flake8 . --count --exit-zero --max-complexity=12 --max-line-length=127 --statistics --exclude=node_modules,migrations,humans/legacy/export.py
       - name: Test
+        env:
+          SHIPANARO_DATABASE_URL: postgres://postgres@localhost/postgres
+          SHIPANARO_LDAP_URL: "ldap://localhost"
+          SHIPANARO_LDAP_BIND_DN: "cn=admin,dc=pirata,dc=cat"
+          SHIPANARO_LDAP_BIND_PASSWORD: "admin"
+          SHIPANARO_LDAP_USER_SEARCH: "(&(objectclass=inetOrgPerson)(uid=%(user)s))"
         run: |
+          pipenv run ./create_ldap_user.py tester tester
           pipenv run ./manage.py test

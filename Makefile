@@ -9,7 +9,7 @@ test-user-delete:
 	docker-compose run --entrypoint 'ldapdelete -x -H ldap://ldap -D "cn=admin,dc=pirata,dc=cat" -w admin "cn=tester,dc=pirata,dc=cat"' ldap || echo "User doesn't exist"
 
 test-user-create: test-user-delete
-	docker-compose run --entrypoint "ldapadd -x -H ldap://ldap -D "cn=admin,dc=pirata,dc=cat" -w admin -f /testdata/testuser.ldif" ldap
+	docker-compose run web ./create_ldap_user.py tester tester
 
 shell:
 	./indocker.sh ./manage.py shell
