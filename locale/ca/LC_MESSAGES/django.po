@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-26 18:10+0000\n"
+"POT-Creation-Date: 2021-06-01 15:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,196 +27,309 @@ msgstr "Contacte"
 msgid "Web"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:8
+#: humans/templates/shipanaro/index.html:7
 msgid "Pàgina oficial del partit. Inclou el bloc i l'ideari del partit."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:11
-#: humans/templates/shipanaro/index.html:75
-#: humans/templates/shipanaro/index.html:88
-#: humans/templates/shipanaro/index.html:99
-#: humans/templates/shipanaro/index.html:112
-#: humans/templates/shipanaro/index.html:123
+#: humans/templates/shipanaro/index.html:8
+#: humans/templates/shipanaro/index.html:43
+#: humans/templates/shipanaro/index.html:55
+#: humans/templates/shipanaro/index.html:65
+#: humans/templates/shipanaro/index.html:76
+#: humans/templates/shipanaro/index.html:85
 msgid "Go"
 msgstr "Anar-hi"
 
-#: humans/templates/shipanaro/index.html:14
+#: humans/templates/shipanaro/index.html:9
 msgid "Bloc"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:17
+#: humans/templates/shipanaro/index.html:10
 msgid "Ideari"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:25
+#: humans/templates/shipanaro/index.html:17
 msgid "Xarxes socials"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:27
+#: humans/templates/shipanaro/index.html:18
 msgid "Troba'ns a les xarxes i comparteix el que hi publiquem."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:32
+#: humans/templates/shipanaro/index.html:19
 msgid "Mastodon"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:38
+#: humans/templates/shipanaro/index.html:20
 msgid "Twitter"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:44
+#: humans/templates/shipanaro/index.html:21
 msgid "Facebook"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:47
+#: humans/templates/shipanaro/index.html:22
 msgid "Instagram"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:58
+#: humans/templates/shipanaro/index.html:31
 msgid "Sistema de Participació"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:59
+#: humans/templates/shipanaro/index.html:32
 msgid "Sistema de votació del partit."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:61
+#: humans/templates/shipanaro/index.html:33
 msgid "New"
 msgstr "Nou"
 
-#: humans/templates/shipanaro/index.html:64
+#: humans/templates/shipanaro/index.html:34
 msgid "Old"
 msgstr "Antic"
 
-#: humans/templates/shipanaro/index.html:72
+#: humans/templates/shipanaro/index.html:41
 msgid "Pads"
-msgstr ""
+msgstr "Pads"
 
-#: humans/templates/shipanaro/index.html:73
+#: humans/templates/shipanaro/index.html:42
 msgid "Eina col·laborativa d'edició de textos"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:85
+#: humans/templates/shipanaro/index.html:52
 msgid "Llistes de correu"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:86
+#: humans/templates/shipanaro/index.html:53
 msgid "Eina de comunicació de grups per correu electrònic."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:96
+#: humans/templates/shipanaro/index.html:63
 msgid "Xat"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:97
+#: humans/templates/shipanaro/index.html:64
 msgid "Eina de missatgeria instantània per a grups."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:109
+#: humans/templates/shipanaro/index.html:74
 msgid "Wiki"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:110
+#: humans/templates/shipanaro/index.html:75
 msgid "Wiki del partit."
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:120
+#: humans/templates/shipanaro/index.html:83
 msgid "Cloud"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:121
+#: humans/templates/shipanaro/index.html:84
 msgid "Repositori de fitxers i documents."
 msgstr ""
 
-#: shipanaro/admin.py:98
+#: shipanaro/admin.py:107
 #, fuzzy
 #| msgid "Contacte"
 msgid "Contact"
 msgstr "Contacte"
 
-#: shipanaro/admin.py:107
+#: shipanaro/admin.py:116 shipanaro/models.py:63
 msgid "Address"
-msgstr ""
-
-#: shipanaro/admin.py:120
-msgid "Status"
-msgstr ""
+msgstr "Adreça"
 
 #: shipanaro/admin.py:129
-msgid "Notes"
-msgstr ""
+msgid "Status"
+msgstr "Estat"
 
-#: shipanaro/admin.py:134
+#: shipanaro/admin.py:138 shipanaro/models.py:88
+msgid "Notes"
+msgstr "Notes"
+
+#: shipanaro/admin.py:141
 msgid "Legacy"
 msgstr ""
 
-#: shipanaro/auth/views.py:33 shipanaro/templates/registration/login.html:9
-#: shipanaro/templates/registration/password_reset_complete.html:5
-#: shipanaro/templates/shipanaro/base.html:33
-msgid "Log in"
-msgstr ""
+#: shipanaro/auth/forms.py:61
+msgid "Your old password was entered incorrectly. Please enter it again."
+msgstr "La teva contrasenya antiga no és correcta. Torna-la a introduir."
 
-#: shipanaro/auth/views.py:109
+#: shipanaro/auth/forms.py:65
+msgid "Old password"
+msgstr "Contrasenya antiga"
+
+#: shipanaro/auth/views.py:39 shipanaro/templates/registration/login.html:8
+#: shipanaro/templates/registration/password_reset_complete.html:5
+#: shipanaro/templates/shipanaro/base.html:43
+msgid "Log in"
+msgstr "Entrar"
+
+#: shipanaro/auth/views.py:108
+msgid "Password change"
+msgstr "Canvi de contrasenya"
+
+#: shipanaro/auth/views.py:140
 msgid "Personal info"
-msgstr ""
+msgstr "Info Personal"
+
+#: shipanaro/gdpr/models.py:10
+msgid "Accept"
+msgstr "Acceptar"
+
+#: shipanaro/gdpr/models.py:11
+msgid "Reject"
+msgstr "Rebutjar"
 
 #: shipanaro/models.py:9 shipanaro/models.py:18
 msgid "Male"
-msgstr ""
+msgstr "Home"
 
 #: shipanaro/models.py:10 shipanaro/models.py:19
 msgid "Female"
-msgstr ""
+msgstr "Dona"
 
 #: shipanaro/models.py:11
 msgid "Not Applicable"
-msgstr ""
+msgstr "No aplicable"
 
 #: shipanaro/models.py:20
-msgid "Gender non-conforming"
-msgstr ""
+msgid "Agender"
+msgstr "Agènere"
+
+#: shipanaro/models.py:21
+msgid "Fluid"
+msgstr "Gènere fluid"
+
+#: shipanaro/models.py:22
+msgid "Non-binary"
+msgstr "Gènere no binari"
+
+#: shipanaro/models.py:23
+msgid "Pangender"
+msgstr "Pangènere"
 
 #: shipanaro/models.py:24
+msgid "Transgender"
+msgstr "Transgènere"
+
+#: shipanaro/models.py:25
+msgid "Gender non-conforming"
+msgstr "Gènere no conforme"
+
+#: shipanaro/models.py:29
 msgid "Passport"
-msgstr ""
+msgstr "Passaport"
 
-#: shipanaro/models.py:27
+#: shipanaro/models.py:30
+msgid "Documento Nacional de Identidad"
+msgstr "DNI"
+
+#: shipanaro/models.py:31
+msgid "Número de Identificación de Extranjeros"
+msgstr "NIE"
+
+#: shipanaro/models.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
-#: shipanaro/models.py:66
+#: shipanaro/models.py:40
+msgid "Assigned sex"
+msgstr "Sexe assignat"
+
+#: shipanaro/models.py:44
+msgid "Gender"
+msgstr "Gènere"
+
+#: shipanaro/models.py:48
+msgid "Custom Gender"
+msgstr "Gènere a mida"
+
+#: shipanaro/models.py:54
+msgid "Birthday"
+msgstr "Aniversari"
+
+#: shipanaro/models.py:57
+msgid "Nationality"
+msgstr "Nacionalitat"
+
+#: shipanaro/models.py:67
+msgid "City"
+msgstr "Ciutat"
+
+#: shipanaro/models.py:71
+msgid "Postcode"
+msgstr "Codi Postal"
+
+#: shipanaro/models.py:75
+msgid "Province"
+msgstr "Província"
+
+#: shipanaro/models.py:79
+msgid "Phone"
+msgstr "Telèfon"
+
+#: shipanaro/models.py:83
+msgid "Phone 2"
+msgstr "Telèfon 2"
+
+#: shipanaro/models.py:113
 msgid "Newsletter"
-msgstr ""
+msgstr "Butlletí"
 
-#: shipanaro/templates/registration/login.html:12
+#: shipanaro/templates/registration/login.html:11
 msgid "Password reset"
+msgstr "Reiniciar contrasenya"
+
+#: shipanaro/templates/registration/password_change_done.html:4
+msgid "Your password was changed."
+msgstr "La teva contrasenya s'ha modificat."
+
+#: shipanaro/templates/registration/password_change_form.html:4
+msgid ""
+"Please enter your old password, for security’s sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
 msgstr ""
+"Sisplau introdueix la contrasenya antiga, per seguretat, i llavors "
+"introdueix la nova contrasenya dos cops per a poder comprovar que l'has "
+"entrada correctament."
+
+#: shipanaro/templates/registration/password_change_form.html:9
+msgid "Change password"
+msgstr "Canviar contrasenya"
 
 #: shipanaro/templates/registration/password_reset_complete.html:4
 msgid "Your password has been set.  You may go ahead and log in now."
 msgstr ""
+"Hem reiniciat la teva contrasenya. Ja pots tirar milles i entrar al sistema."
 
 #: shipanaro/templates/registration/password_reset_confirm.html:5
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
+"Sisplau introdueix la nova contrasenya dos cops per a poder comprovar que "
+"l'has entrada correctament."
 
 #: shipanaro/templates/registration/password_reset_confirm.html:10
 msgid "Change my password"
-msgstr ""
+msgstr "Canviar la meva contrasenya"
 
 #: shipanaro/templates/registration/password_reset_confirm.html:14
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
 msgstr ""
+"L'enllaç per reiniciar la contrasenya no és vàlid, potser ja s'ha fet "
+"servir. Sisplau demana un nou reinici de contrasenya."
 
 #: shipanaro/templates/registration/password_reset_done.html:4
 msgid ""
 "We've emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly."
 msgstr ""
+"Si hi havia un compte amb el correu que ens has indicat, hi hem enviat un "
+"correu amb instruccions per configurar la contrasenya. Les hauries de rebre "
+"en breu."
 
 #: shipanaro/templates/registration/password_reset_done.html:5
 msgid ""
@@ -230,50 +343,62 @@ msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
 msgstr ""
+"Rebs aquest correu perquè has demanat reiniciar la contrasenya al teu compte "
+"a %(site_name)s."
 
 #: shipanaro/templates/registration/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr ""
+msgstr "Sisplau ves a la pàgina següent i tria una nova contrasenya:"
 
 #: shipanaro/templates/registration/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr ""
+msgstr "El teu nom d'usuari, en cas que l'hagis oblidat"
 
 #: shipanaro/templates/registration/password_reset_email.html:10
 msgid "Thanks for using our site!"
-msgstr ""
+msgstr "Gràcies per fer servir el nostre web!"
 
 #: shipanaro/templates/registration/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr ""
+msgstr "L'equip de %(site_name)s"
 
 #: shipanaro/templates/registration/password_reset_form.html:4
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll email "
 "instructions for setting a new one."
 msgstr ""
+"Has oblidat la contrasenya? Entra el teu correu a sota i t'enviarem "
+"instruccions per posar-ne una de nova."
 
 #: shipanaro/templates/registration/password_reset_form.html:9
 msgid "Reset my password"
-msgstr ""
+msgstr "Reiniciar contrasenya"
 
 #: shipanaro/templates/registration/profile.html:13
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: shipanaro/templates/registration/profile.html:18
 msgid "Cancel membership"
-msgstr ""
+msgstr "Cancel.lar afiliació"
 
-#: shipanaro/templates/shipanaro/base.html:26
+#: shipanaro/templates/shipanaro/base.html:27
 msgid "Administration"
-msgstr ""
+msgstr "Administració"
 
-#: shipanaro/templates/shipanaro/base.html:29
+#: shipanaro/templates/shipanaro/base.html:32
+msgid "My Account"
+msgstr "El meu compte"
+
+#: shipanaro/templates/shipanaro/base.html:36
+msgid "Change Password"
+msgstr "Canviar contrasenya"
+
+#: shipanaro/templates/shipanaro/base.html:39
 msgid "Log out"
-msgstr ""
+msgstr "Sortir"
 
 #: shipanaro/views.py:14
 msgid "Home"
-msgstr ""
+msgstr "Casa"
