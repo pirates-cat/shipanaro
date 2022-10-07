@@ -43,7 +43,6 @@ def authorize(request):
         payload,
     )
     payload = base64.b64encode(payload.encode("utf-8"))
-    print(payload)
     signature = hmac.new(
         settings.SSO_SECRET_KEY.encode("utf-8"),
         payload,

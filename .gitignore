@@ -134,3 +134,10 @@ typings/
 
 # next.js build output
 .next
+
+# user stuff
+.vim*
+.*history
+.local
+.profile
+
