@@ -20,9 +20,7 @@ def login(request):
     ).hexdigest()
     if not hmac.compare_digest(digest, signature):
         return HttpResponseBadRequest()
-    request.session["nonce"] = base64.decodestring(payload.encode("utf-8")).decode(
-        "utf-8"
-    )
+    request.session["nonce"] = base64.decodebytes(payload.encode("utf-8")).decode("utf-8")
     return redirect("sso_auth")
 
 
