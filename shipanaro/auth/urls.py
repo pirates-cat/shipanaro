@@ -38,5 +38,5 @@ urlpatterns = [
     ),
     url("^profile/$", views.membership, name="profile"),
     url("^join/$", views.apply_for_membership, name="application"),
-    url("^welcome/$", views.MembershipSubmittedView.as_view(), name="application_sent"),
+    url("^welcome/$", views.application_sent, name="application_sent"),
 ]

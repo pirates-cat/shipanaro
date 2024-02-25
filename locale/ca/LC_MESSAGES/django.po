@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-25 15:09+0000\n"
+"POT-Creation-Date: 2024-02-25 16:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -158,18 +158,27 @@ msgstr "La teva contrasenya antiga no és correcta. Torna-la a introduir."
 msgid "Old password"
 msgstr "Contrasenya antiga"
 
-#: shipanaro/auth/views.py:39 shipanaro/templates/registration/login.html:8
+#: shipanaro/auth/views.py:40 shipanaro/templates/registration/login.html:8
 #: shipanaro/templates/registration/password_reset_complete.html:5
 msgid "Log in"
 msgstr "Entrar"
 
-#: shipanaro/auth/views.py:108
+#: shipanaro/auth/views.py:109
 msgid "Password change"
 msgstr "Canvi de contrasenya"
 
-#: shipanaro/auth/views.py:140
+#: shipanaro/auth/views.py:141
 msgid "Personal info"
 msgstr "Info Personal"
+
+#: shipanaro/auth/views.py:169 shipanaro/templates/registration/join.html:9
+#: shipanaro/templates/registration/login.html:15
+msgid "Join the Party"
+msgstr "Uneix-te al partit"
+
+#: shipanaro/auth/views.py:186
+msgid "Welcome"
+msgstr "Benvinguda"
 
 #: shipanaro/gdpr/models.py:10
 msgid "Accept"
@@ -275,21 +284,18 @@ msgstr "Telèfon 2"
 msgid "Newsletter"
 msgstr "Butlletí"
 
-#: shipanaro/templates/registration/join.html:8
-msgid "Join the Party"
-msgstr "Uneix-te al partit"
-
-#: shipanaro/templates/registration/join.html:14
+#: shipanaro/templates/registration/join.html:15
 #: shipanaro/templates/registration/profile.html:13
 msgid "Submit"
 msgstr "Enviar"
 
-#: shipanaro/templates/registration/join.html:19
+#: shipanaro/templates/registration/join.html:20
 #: shipanaro/templates/registration/profile.html:18
+#: shipanaro/templates/shipanaro/membership_submitted.html:13
 msgid "Cancel membership"
 msgstr "Cancel.lar afiliació"
 
-#: shipanaro/templates/registration/login.html:11
+#: shipanaro/templates/registration/login.html:12
 msgid "Password reset"
 msgstr "Reiniciar contrasenya"
 

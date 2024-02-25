@@ -163,28 +163,17 @@ class NewMembershipView(SuccessMessageMixin, CreateView):
     form_class = NewMembershipForm
     model = Membership
     success_url = reverse_lazy("application_sent")
-    extra_context = None
-    title = _("Join the Party")
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context.update(
-            {
-                "title": self.title,
-            }
-        )
-        context.update(self.extra_context or {})
-        return context
 
 
-@never_cache
-def apply_for_membership(request, extra_context=None):
-    """
-    Display the membership application form.
-    """
-    return NewMembershipView.as_view(**view_defaults())(request)
+apply_for_membership = NewMembershipView.as_view(
+    **view_defaults({"title": _("Join the Party")}),
+)
 
 
 class MembershipSubmittedView(TemplateView):
     template_name = "shipanaro/membership_submitted.html"
-    extra_context = None
+
+
+application_sent = MembershipSubmittedView.as_view(
+    **view_defaults({"title": _("Welcome")})
+)
