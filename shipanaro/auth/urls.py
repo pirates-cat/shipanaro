@@ -37,4 +37,6 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     url("^profile/$", views.membership, name="profile"),
+    url("^join/$", views.apply_for_membership, name="application"),
+    url("^welcome/$", views.MembershipSubmittedView.as_view(), name="application_sent"),
 ]

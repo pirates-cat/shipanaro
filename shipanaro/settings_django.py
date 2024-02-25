@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     # 3rd party
     "rangefilter",
     "bootstrap4",
+    "crispy_forms",
+    "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -92,6 +94,8 @@ WSGI_APPLICATION = "shipanaro.wsgi.application"
 DATABASES = {
     "default": env.dj_db_url("SHIPANARO_DATABASE_URL", default="sqlite://db.sqlite")
 }
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTHENTICATION_BACKENDS = [
     "django_auth_ldap.backend.LDAPBackend",

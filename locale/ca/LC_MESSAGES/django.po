@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-01 15:13+0000\n"
+"POT-Creation-Date: 2024-02-25 15:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: humans/templates/shipanaro/base.html:27
-#: humans/templates/shipanaro/base.html:29
+#: humans/templates/shipanaro/base.html:28
+#: humans/templates/shipanaro/base.html:30
 msgid "Contacte"
 msgstr "Contacte"
 
 #: humans/templates/shipanaro/index.html:6
 msgid "Web"
-msgstr ""
+msgstr "Web"
 
 #: humans/templates/shipanaro/index.html:7
 msgid "Pàgina oficial del partit. Inclou el bloc i l'ideari del partit."
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Contact"
 msgstr "Contacte"
 
-#: shipanaro/admin.py:116 shipanaro/models.py:63
+#: shipanaro/admin.py:116 shipanaro/models.py:65
 msgid "Address"
 msgstr "Adreça"
 
@@ -142,7 +142,7 @@ msgstr "Adreça"
 msgid "Status"
 msgstr "Estat"
 
-#: shipanaro/admin.py:138 shipanaro/models.py:88
+#: shipanaro/admin.py:138 shipanaro/models.py:90
 msgid "Notes"
 msgstr "Notes"
 
@@ -150,17 +150,16 @@ msgstr "Notes"
 msgid "Legacy"
 msgstr ""
 
-#: shipanaro/auth/forms.py:61
+#: shipanaro/auth/forms.py:98
 msgid "Your old password was entered incorrectly. Please enter it again."
 msgstr "La teva contrasenya antiga no és correcta. Torna-la a introduir."
 
-#: shipanaro/auth/forms.py:65
+#: shipanaro/auth/forms.py:102
 msgid "Old password"
 msgstr "Contrasenya antiga"
 
 #: shipanaro/auth/views.py:39 shipanaro/templates/registration/login.html:8
 #: shipanaro/templates/registration/password_reset_complete.html:5
-#: shipanaro/templates/shipanaro/base.html:43
 msgid "Log in"
 msgstr "Entrar"
 
@@ -232,49 +231,63 @@ msgstr "NIE"
 msgid "Unknown"
 msgstr "Desconegut"
 
-#: shipanaro/models.py:40
+#: shipanaro/models.py:42
 msgid "Assigned sex"
 msgstr "Sexe assignat"
 
-#: shipanaro/models.py:44
+#: shipanaro/models.py:46
 msgid "Gender"
 msgstr "Gènere"
 
-#: shipanaro/models.py:48
+#: shipanaro/models.py:50
 msgid "Custom Gender"
 msgstr "Gènere a mida"
 
-#: shipanaro/models.py:54
+#: shipanaro/models.py:56
 msgid "Birthday"
 msgstr "Aniversari"
 
-#: shipanaro/models.py:57
+#: shipanaro/models.py:59
 msgid "Nationality"
 msgstr "Nacionalitat"
 
-#: shipanaro/models.py:67
+#: shipanaro/models.py:69
 msgid "City"
 msgstr "Ciutat"
 
-#: shipanaro/models.py:71
+#: shipanaro/models.py:73
 msgid "Postcode"
 msgstr "Codi Postal"
 
-#: shipanaro/models.py:75
+#: shipanaro/models.py:77
 msgid "Province"
 msgstr "Província"
 
-#: shipanaro/models.py:79
+#: shipanaro/models.py:81
 msgid "Phone"
 msgstr "Telèfon"
 
-#: shipanaro/models.py:83
+#: shipanaro/models.py:85
 msgid "Phone 2"
 msgstr "Telèfon 2"
 
-#: shipanaro/models.py:113
+#: shipanaro/models.py:115
 msgid "Newsletter"
 msgstr "Butlletí"
+
+#: shipanaro/templates/registration/join.html:8
+msgid "Join the Party"
+msgstr "Uneix-te al partit"
+
+#: shipanaro/templates/registration/join.html:14
+#: shipanaro/templates/registration/profile.html:13
+msgid "Submit"
+msgstr "Enviar"
+
+#: shipanaro/templates/registration/join.html:19
+#: shipanaro/templates/registration/profile.html:18
+msgid "Cancel membership"
+msgstr "Cancel.lar afiliació"
 
 #: shipanaro/templates/registration/login.html:11
 msgid "Password reset"
@@ -374,14 +387,6 @@ msgstr ""
 #: shipanaro/templates/registration/password_reset_form.html:9
 msgid "Reset my password"
 msgstr "Reiniciar contrasenya"
-
-#: shipanaro/templates/registration/profile.html:13
-msgid "Submit"
-msgstr "Enviar"
-
-#: shipanaro/templates/registration/profile.html:18
-msgid "Cancel membership"
-msgstr "Cancel.lar afiliació"
 
 #: shipanaro/templates/shipanaro/base.html:27
 msgid "Administration"

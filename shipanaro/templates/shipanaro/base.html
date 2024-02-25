@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n static %}
 {% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
 <!doctype html>
 <html lang="{{ LANGUAGE_CODE|default:"en" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
@@ -15,13 +15,13 @@
 	<header id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark mb-4" role="banner">
 		<div class="container">
 			{% block branding %}<a class="navbar-brand" href="{% url 'index' %}">{{ site_title }}</a>{% endblock %}
+      {% if user.is_authenticated %}
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<nav class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
 					{% block extranav %}{% endblock %}
-					{% if user.is_authenticated %}
 						{% if user.is_staff %}
 							<li class="nav-item">
 								<a class="nav-link" href="{% url 'admin:index' %}" title="{% trans 'Administration' %}"><i class="fas fa-toolbox mr-2"></i><span class="d-lg-none">{% trans 'Administration' %}</span></a>
@@ -38,13 +38,12 @@
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'logout' %}" title="{% trans 'Log out' %}"><i class="fas fa-sign-out-alt mr-2"></i><span class="d-lg-none">{% trans 'Log out' %}</span></a>
 						</li>
-					{% else %}
-						<li class="nav-item">
+						{% comment %} <li class="nav-item">
 							<a class="nav-link" href="{% url 'login' %}" title="{% trans 'Log in' %}"><i class="fas fa-sign-in-alt mr-2"></i><span class="d-lg-none">{% trans 'Log in' %}</span></a>
-						</li>
-					{% endif %}
-				</ul>
-			</nav>
+						</li> {% endcomment %}
+          </ul>
+        </nav>
+        {% endif %}
 		</div>
 	</header>
 	<div class="container" role="main">

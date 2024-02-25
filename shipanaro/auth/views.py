@@ -19,10 +19,11 @@ from django.utils.translation import gettext as _
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
-from django.views.generic.edit import FormView, UpdateView
+from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView, FormView, UpdateView
 
 
-from shipanaro.auth.forms import MembershipForm, PasswordChangeForm
+from shipanaro.auth.forms import MembershipForm, NewMembershipForm, PasswordChangeForm
 from shipanaro.models import Membership
 from shipanaro.views import view_defaults
 
@@ -155,3 +156,35 @@ def membership(request, extra_context=None):
     Display the membership form.
     """
     return MembershipView.as_view(**view_defaults())(request)
+
+
+class NewMembershipView(SuccessMessageMixin, CreateView):
+    template_name = "registration/join.html"
+    form_class = NewMembershipForm
+    model = Membership
+    success_url = reverse_lazy("application_sent")
+    extra_context = None
+    title = _("Join the Party")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(
+            {
+                "title": self.title,
+            }
+        )
+        context.update(self.extra_context or {})
+        return context
+
+
+@never_cache
+def apply_for_membership(request, extra_context=None):
+    """
+    Display the membership application form.
+    """
+    return NewMembershipView.as_view(**view_defaults())(request)
+
+
+class MembershipSubmittedView(TemplateView):
+    template_name = "shipanaro/membership_submitted.html"
+    extra_context = None

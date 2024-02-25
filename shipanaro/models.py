@@ -34,8 +34,10 @@ NIDS = (
 
 
 class Membership(models.Model):
+    # user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    uid = models.IntegerField()
+    # uid exists after membership is accepted and user created in LDAP
+    uid = models.IntegerField(null=True, blank=True)
     assigned_sex = models.IntegerField(
         verbose_name=_("Assigned sex"),
         choices=SEXES,
