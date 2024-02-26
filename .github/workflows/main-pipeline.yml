@@ -75,5 +75,5 @@ jobs:
           SHIPANARO_LDAP_BIND_PASSWORD: "admin"
           SHIPANARO_LDAP_USER_SEARCH: "(&(objectclass=inetOrgPerson)(uid=%(user)s))"
         run: |
-          pipenv run ./create_ldap_user.py tester tester
+          pipenv run ./create_ldap_user.py tester tester 1234
           pipenv run ./manage.py test
