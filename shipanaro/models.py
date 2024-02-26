@@ -35,7 +35,8 @@ NIDS = (
 
 class Membership(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    uid = models.IntegerField()
+    # uid exists after membership is accepted and user created in LDAP
+    uid = models.IntegerField(null=True, blank=True)
     assigned_sex = models.IntegerField(
         verbose_name=_("Assigned sex"),
         choices=SEXES,
@@ -108,6 +109,9 @@ class Membership(models.Model):
                 endpoint=self.user.email,
             )
             sub.save()
+
+    def __str__(self):
+        return self.user.first_name
 
 
 SUBSCRIPTION_SERVICES = (("newsletter", _("Newsletter")),)

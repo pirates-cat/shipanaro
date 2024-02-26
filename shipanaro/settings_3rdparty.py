@@ -43,3 +43,8 @@ AWS_ACCESS_KEY_ID = os.getenv("SHIPANARO_AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("SHIPANARO_AWS_SECRET_ACCESS_KEY")
 AWS_SES_REGION_NAME = "eu-west-1"
 AWS_SES_REGION_ENDPOINT = "email.eu-west-1.amazonaws.com"
+
+
+# crispy forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"

@@ -4,10 +4,9 @@ url = "https://pypi.org/simple"
 name = "pypi"
 
 [packages]
-Django = "==3.1.14"
 django-admin-list-filter-dropdown = "==1.0.3"
 django-admin-rangefilter = "==0.6.2"
-django-auth-ldap = "==2.2.0"
+django-auth-ldap = "==4.3.0"
 django-bootstrap4 = "==2.2.0"
 django-export-action = "==0.1.1"
 django-hashers-passlib = "*"
@@ -16,9 +15,12 @@ environs = {extras = [ "django",]}
 gunicorn = "*"
 psycopg2-binary = "==2.8.6"
 pytz = "==2020.1"
+django-crispy-forms = "*"
+django = "==3.2"
+crispy-bootstrap4 = "==2022.1"
 
 [dev-packages]
 wheel = "*"
 Fabric3 = "*"
 flake8 = "*"
-
+ipdb = "*"
