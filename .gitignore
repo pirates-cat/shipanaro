@@ -63,7 +63,7 @@ target/
 db.sqlite3
 ship_*/
 
-static/
+/static/
 !.gitkeep
 
 local_settings.py

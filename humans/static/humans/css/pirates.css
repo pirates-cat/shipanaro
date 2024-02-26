@@ -1,0 +1,18 @@
+* {
+	font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+}
+
+#navbar {
+	background-color: #993399;
+	border-color: #802b80;
+}
+
+.btn-primary {
+	background-color: #993399;
+	border-color: #993399;
+}
+
+.btn-primary:hover {
+	background-color: #602060;
+	border-color: #602060;
+}
