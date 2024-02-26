@@ -110,6 +110,9 @@ class Membership(models.Model):
             )
             sub.save()
 
+    def __str__(self):
+        return self.user.first_name
+
 
 SUBSCRIPTION_SERVICES = (("newsletter", _("Newsletter")),)
 
