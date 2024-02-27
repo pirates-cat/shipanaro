@@ -58,8 +58,14 @@ class Membership(models.Model):
         verbose_name=_("Nationality"),
         max_length=20,
     )
-    nid = models.CharField(max_length=50)
-    nid_type = models.IntegerField(choices=NIDS)
+    nid = models.CharField(
+        verbose_name=_("ID Number"),
+        max_length=50,
+    )
+    nid_type = models.IntegerField(
+        verbose_name=_("ID Type"),
+        choices=NIDS,
+    )
     address = models.CharField(
         verbose_name=_("Address"),
         max_length=140,

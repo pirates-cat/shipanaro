@@ -3,6 +3,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import SetPasswordForm
 from django.utils.translation import gettext as _
 
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Column, HTML, Layout, Row, Submit
+
 from shipanaro.auth.models import User
 from shipanaro.models import Membership
 
@@ -37,6 +40,15 @@ class MembershipForm(forms.ModelForm):
         self.instance.user = user
         return super(MembershipForm, self).save(*args, **kwargs)
 
+    def is_valid(self):
+        return self.user_form.is_valid() and super().is_valid()
+
+    def clean(self):
+        self.user_form.clean()
+        super().clean()
+        for field, error in self.user_form.errors.items():
+            self.add_error(field, error)
+
     class Meta:
         model = Membership
         fields = [
@@ -63,6 +75,9 @@ class NewUserForm(forms.ModelForm):
             "email",
         ]
 
+    first_name = forms.CharField(label=_("first name").capitalize(), required=True)
+    last_name = forms.CharField(label=_("last name").capitalize(), required=True)
+
 
 class NewMembershipForm(MembershipForm):
     user_form = NewUserForm
@@ -84,6 +99,51 @@ class NewMembershipForm(MembershipForm):
             "phone",
             "phone_2",
         ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            "username",
+            HTML("<h4>Dades Personals</h4>"),
+            Row(
+                Column("first_name", css_class="form-group col-md-6 mb-0"),
+                Column("last_name", css_class="form-group col-md-6 mb-0"),
+                css_class="form-row",
+            ),
+            Row(
+                Column("assigned_sex", css_class="form-group col-md-6 mb-0"),
+                Column("gender", css_class="form-group col-md-6 mb-0"),
+                css_class="form-row",
+            ),
+            "gender_custom",
+            Row(
+                Column("birthday", css_class="form-group col-md-6 mb-0"),
+                Column("nationality", css_class="form-group col-md-6 mb-0"),
+                css_class="form-row",
+            ),
+            HTML("<h4>Identificació</h4>"),
+            Row(
+                Column("nid_type", css_class="form-group col-md-6 mb-0"),
+                Column("nid", css_class="form-group col-md-6 mb-0"),
+                css_class="form-row",
+            ),
+            HTML("<h4>Domicili</h4>"),
+            "address",
+            Row(
+                Column("postal_code", css_class="form-group col-md-4 mb-0"),
+                Column("city", css_class="form-group col-md-4 mb-0"),
+                Column("province", css_class="form-group col-md-4 mb-0"),
+                css_class="form-row",
+            ),
+            HTML("<h4>Contacte</h4>"),
+            Row(
+                Column("phone", css_class="form-group col-md-6 mb-0"),
+                Column("email", css_class="form-group col-md-6 mb-0"),
+                css_class="form-row",
+            ),
+            Submit("submit", _("Submit")),
+        )
 
 
 class PasswordChangeForm(SetPasswordForm):
