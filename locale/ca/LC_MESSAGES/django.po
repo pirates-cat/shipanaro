@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-27 14:57+0000\n"
+"POT-Creation-Date: 2024-02-27 16:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,45 +85,45 @@ msgstr ""
 msgid "Eina de missatgeria instantània per a grups."
 msgstr ""
 
-#: shipanaro/admin.py:107
+#: shipanaro/admin.py:108
 #, fuzzy
 #| msgid "Contacte"
 msgid "Contact"
 msgstr "Contacte"
 
-#: shipanaro/admin.py:116 shipanaro/models.py:71
+#: shipanaro/admin.py:117 shipanaro/models.py:77
 msgid "Address"
 msgstr "Adreça"
 
-#: shipanaro/admin.py:129
+#: shipanaro/admin.py:130
 msgid "Status"
 msgstr "Estat"
 
-#: shipanaro/admin.py:138 shipanaro/models.py:96
+#: shipanaro/admin.py:139 shipanaro/models.py:102
 msgid "Notes"
 msgstr "Notes"
 
-#: shipanaro/admin.py:141
+#: shipanaro/admin.py:142
 msgid "Legacy"
 msgstr "Històric"
 
-#: shipanaro/auth/forms.py:81
+#: shipanaro/auth/forms.py:78
 msgid "first name"
 msgstr ""
 
-#: shipanaro/auth/forms.py:82
+#: shipanaro/auth/forms.py:79
 msgid "last name"
 msgstr ""
 
-#: shipanaro/auth/forms.py:151 shipanaro/templates/registration/profile.html:13
+#: shipanaro/auth/forms.py:147 shipanaro/templates/registration/profile.html:13
 msgid "Submit"
 msgstr "Enviar"
 
-#: shipanaro/auth/forms.py:164
+#: shipanaro/auth/forms.py:160
 msgid "Your old password was entered incorrectly. Please enter it again."
 msgstr "La teva contrasenya antiga no és correcta. Torna-la a introduir."
 
-#: shipanaro/auth/forms.py:168
+#: shipanaro/auth/forms.py:164
 msgid "Old password"
 msgstr "Contrasenya antiga"
 
@@ -225,43 +225,51 @@ msgstr "Gènere a mida"
 msgid "Birthday"
 msgstr "Data de naixement"
 
-#: shipanaro/models.py:58
+#: shipanaro/models.py:56
+msgid "Format: dd/mm/yyyy"
+msgstr "Format: dd/mm/yyyy"
+
+#: shipanaro/models.py:59
 msgid "Nationality"
 msgstr "Nacionalitat"
 
-#: shipanaro/models.py:62
+#: shipanaro/models.py:63
 msgid "ID Number"
 msgstr "Número d'identificació"
 
-#: shipanaro/models.py:66
+#: shipanaro/models.py:67
 msgid "ID Type"
 msgstr "Tipus d'identificació"
 
-#: shipanaro/models.py:69
+#: shipanaro/models.py:72
+msgid "Use a picture that includes both sides of an ID card"
+msgstr "Utilitza una foto on es vegin les dues cares del document"
+
+#: shipanaro/models.py:73
 msgid "ID Photo"
 msgstr "Fotografia del document d'identificació"
 
-#: shipanaro/models.py:75
+#: shipanaro/models.py:81
 msgid "City"
 msgstr "Municipi"
 
-#: shipanaro/models.py:79
+#: shipanaro/models.py:85
 msgid "Postcode"
 msgstr "Codi Postal"
 
-#: shipanaro/models.py:83
+#: shipanaro/models.py:89
 msgid "Province"
 msgstr "Província"
 
-#: shipanaro/models.py:87
+#: shipanaro/models.py:93
 msgid "Phone"
 msgstr "Telèfon"
 
-#: shipanaro/models.py:91
+#: shipanaro/models.py:97
 msgid "Phone 2"
 msgstr "Telèfon 2"
 
-#: shipanaro/models.py:124
+#: shipanaro/models.py:130
 msgid "Newsletter"
 msgstr "Butlletí"
 

@@ -53,6 +53,7 @@ class Membership(models.Model):
     )
     birthday = models.DateField(
         verbose_name=_("Birthday"),
+        help_text=_("Format: dd/mm/yyyy"),
     )
     nationality = models.CharField(
         verbose_name=_("Nationality"),
@@ -68,6 +69,7 @@ class Membership(models.Model):
     )
     id_photo = models.ImageField(
         upload_to="id_photos",
+        help_text=_("Use a picture that includes both sides of an ID card"),
         verbose_name=_("ID Photo"),
         null=True,
     )
