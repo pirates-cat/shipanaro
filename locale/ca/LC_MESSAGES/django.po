@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-26 18:37+0000\n"
+"POT-Creation-Date: 2024-02-27 14:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Contact"
 msgstr "Contacte"
 
-#: shipanaro/admin.py:116 shipanaro/models.py:70
+#: shipanaro/admin.py:116 shipanaro/models.py:71
 msgid "Address"
 msgstr "Adreça"
 
@@ -99,7 +99,7 @@ msgstr "Adreça"
 msgid "Status"
 msgstr "Estat"
 
-#: shipanaro/admin.py:138 shipanaro/models.py:95
+#: shipanaro/admin.py:138 shipanaro/models.py:96
 msgid "Notes"
 msgstr "Notes"
 
@@ -107,19 +107,23 @@ msgstr "Notes"
 msgid "Legacy"
 msgstr "Històric"
 
-#: shipanaro/auth/forms.py:66
+#: shipanaro/auth/forms.py:81
 msgid "first name"
 msgstr ""
 
-#: shipanaro/auth/forms.py:67
+#: shipanaro/auth/forms.py:82
 msgid "last name"
 msgstr ""
 
-#: shipanaro/auth/forms.py:101
+#: shipanaro/auth/forms.py:151 shipanaro/templates/registration/profile.html:13
+msgid "Submit"
+msgstr "Enviar"
+
+#: shipanaro/auth/forms.py:164
 msgid "Your old password was entered incorrectly. Please enter it again."
 msgstr "La teva contrasenya antiga no és correcta. Torna-la a introduir."
 
-#: shipanaro/auth/forms.py:105
+#: shipanaro/auth/forms.py:168
 msgid "Old password"
 msgstr "Contrasenya antiga"
 
@@ -219,7 +223,7 @@ msgstr "Gènere a mida"
 
 #: shipanaro/models.py:55
 msgid "Birthday"
-msgstr "Aniversari"
+msgstr "Data de naixement"
 
 #: shipanaro/models.py:58
 msgid "Nationality"
@@ -233,36 +237,35 @@ msgstr "Número d'identificació"
 msgid "ID Type"
 msgstr "Tipus d'identificació"
 
-#: shipanaro/models.py:74
+#: shipanaro/models.py:69
+msgid "ID Photo"
+msgstr "Fotografia del document d'identificació"
+
+#: shipanaro/models.py:75
 msgid "City"
 msgstr "Municipi"
 
-#: shipanaro/models.py:78
+#: shipanaro/models.py:79
 msgid "Postcode"
 msgstr "Codi Postal"
 
-#: shipanaro/models.py:82
+#: shipanaro/models.py:83
 msgid "Province"
 msgstr "Província"
 
-#: shipanaro/models.py:86
+#: shipanaro/models.py:87
 msgid "Phone"
 msgstr "Telèfon"
 
-#: shipanaro/models.py:90
+#: shipanaro/models.py:91
 msgid "Phone 2"
 msgstr "Telèfon 2"
 
-#: shipanaro/models.py:123
+#: shipanaro/models.py:124
 msgid "Newsletter"
 msgstr "Butlletí"
 
-#: shipanaro/templates/registration/join.html:15
-#: shipanaro/templates/registration/profile.html:13
-msgid "Submit"
-msgstr "Enviar"
-
-#: shipanaro/templates/registration/join.html:20
+#: shipanaro/templates/registration/join.html:14
 #: shipanaro/templates/registration/profile.html:18
 #: shipanaro/templates/shipanaro/membership_submitted.html:13
 msgid "Cancel membership"

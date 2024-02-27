@@ -92,6 +92,7 @@ class NewMembershipForm(MembershipForm):
             "nationality",
             "nid_type",
             "nid",
+            "id_photo",
             "address",
             "city",
             "postal_code",
@@ -128,6 +129,7 @@ class NewMembershipForm(MembershipForm):
                 Column("nid", css_class="form-group col-md-6 mb-0"),
                 css_class="form-row",
             ),
+            "id_photo",
             HTML("<h4>Domicili</h4>"),
             "address",
             Row(

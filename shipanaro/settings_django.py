@@ -95,7 +95,7 @@ DATABASES = {
     "default": env.dj_db_url("SHIPANARO_DATABASE_URL", default="sqlite://db.sqlite")
 }
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 AUTHENTICATION_BACKENDS = [
     "django_auth_ldap.backend.LDAPBackend",
@@ -137,6 +137,9 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # TODO: prod settings? is this used? the package django-ses in not in Pipfile
