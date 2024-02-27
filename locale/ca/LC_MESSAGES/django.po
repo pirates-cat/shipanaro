@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-25 16:47+0000\n"
+"POT-Creation-Date: 2024-02-26 18:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,11 +32,8 @@ msgid "Pàgina oficial del partit. Inclou el bloc i l'ideari del partit."
 msgstr ""
 
 #: humans/templates/shipanaro/index.html:8
-#: humans/templates/shipanaro/index.html:43
-#: humans/templates/shipanaro/index.html:55
-#: humans/templates/shipanaro/index.html:65
-#: humans/templates/shipanaro/index.html:76
-#: humans/templates/shipanaro/index.html:85
+#: humans/templates/shipanaro/index.html:31
+#: humans/templates/shipanaro/index.html:40
 msgid "Go"
 msgstr "Anar-hi"
 
@@ -72,60 +69,20 @@ msgstr ""
 msgid "Instagram"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:31
-msgid "Sistema de Participació"
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:32
-msgid "Sistema de votació del partit."
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:33
-msgid "New"
-msgstr "Nou"
-
-#: humans/templates/shipanaro/index.html:34
-msgid "Old"
-msgstr "Antic"
-
-#: humans/templates/shipanaro/index.html:41
-msgid "Pads"
-msgstr "Pads"
-
-#: humans/templates/shipanaro/index.html:42
-msgid "Eina col·laborativa d'edició de textos"
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:52
-msgid "Llistes de correu"
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:53
-msgid "Eina de comunicació de grups per correu electrònic."
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:63
-msgid "Xat"
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:64
-msgid "Eina de missatgeria instantània per a grups."
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:74
-msgid "Wiki"
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:75
-msgid "Wiki del partit."
-msgstr ""
-
-#: humans/templates/shipanaro/index.html:83
+#: humans/templates/shipanaro/index.html:29
 msgid "Cloud"
 msgstr ""
 
-#: humans/templates/shipanaro/index.html:84
+#: humans/templates/shipanaro/index.html:30
 msgid "Repositori de fitxers i documents."
+msgstr ""
+
+#: humans/templates/shipanaro/index.html:38
+msgid "Xat"
+msgstr ""
+
+#: humans/templates/shipanaro/index.html:39
+msgid "Eina de missatgeria instantània per a grups."
 msgstr ""
 
 #: shipanaro/admin.py:107
@@ -134,7 +91,7 @@ msgstr ""
 msgid "Contact"
 msgstr "Contacte"
 
-#: shipanaro/admin.py:116 shipanaro/models.py:65
+#: shipanaro/admin.py:116 shipanaro/models.py:70
 msgid "Address"
 msgstr "Adreça"
 
@@ -142,19 +99,27 @@ msgstr "Adreça"
 msgid "Status"
 msgstr "Estat"
 
-#: shipanaro/admin.py:138 shipanaro/models.py:90
+#: shipanaro/admin.py:138 shipanaro/models.py:95
 msgid "Notes"
 msgstr "Notes"
 
 #: shipanaro/admin.py:141
 msgid "Legacy"
+msgstr "Històric"
+
+#: shipanaro/auth/forms.py:66
+msgid "first name"
 msgstr ""
 
-#: shipanaro/auth/forms.py:98
+#: shipanaro/auth/forms.py:67
+msgid "last name"
+msgstr ""
+
+#: shipanaro/auth/forms.py:101
 msgid "Your old password was entered incorrectly. Please enter it again."
 msgstr "La teva contrasenya antiga no és correcta. Torna-la a introduir."
 
-#: shipanaro/auth/forms.py:102
+#: shipanaro/auth/forms.py:105
 msgid "Old password"
 msgstr "Contrasenya antiga"
 
@@ -176,7 +141,7 @@ msgstr "Info Personal"
 msgid "Join the Party"
 msgstr "Uneix-te al partit"
 
-#: shipanaro/auth/views.py:186
+#: shipanaro/auth/views.py:178
 msgid "Welcome"
 msgstr "Benvinguda"
 
@@ -240,47 +205,55 @@ msgstr "NIE"
 msgid "Unknown"
 msgstr "Desconegut"
 
-#: shipanaro/models.py:42
+#: shipanaro/models.py:41
 msgid "Assigned sex"
 msgstr "Sexe assignat"
 
-#: shipanaro/models.py:46
+#: shipanaro/models.py:45
 msgid "Gender"
 msgstr "Gènere"
 
-#: shipanaro/models.py:50
+#: shipanaro/models.py:49
 msgid "Custom Gender"
 msgstr "Gènere a mida"
 
-#: shipanaro/models.py:56
+#: shipanaro/models.py:55
 msgid "Birthday"
 msgstr "Aniversari"
 
-#: shipanaro/models.py:59
+#: shipanaro/models.py:58
 msgid "Nationality"
 msgstr "Nacionalitat"
 
-#: shipanaro/models.py:69
-msgid "City"
-msgstr "Ciutat"
+#: shipanaro/models.py:62
+msgid "ID Number"
+msgstr "Número d'identificació"
 
-#: shipanaro/models.py:73
+#: shipanaro/models.py:66
+msgid "ID Type"
+msgstr "Tipus d'identificació"
+
+#: shipanaro/models.py:74
+msgid "City"
+msgstr "Municipi"
+
+#: shipanaro/models.py:78
 msgid "Postcode"
 msgstr "Codi Postal"
 
-#: shipanaro/models.py:77
+#: shipanaro/models.py:82
 msgid "Province"
 msgstr "Província"
 
-#: shipanaro/models.py:81
+#: shipanaro/models.py:86
 msgid "Phone"
 msgstr "Telèfon"
 
-#: shipanaro/models.py:85
+#: shipanaro/models.py:90
 msgid "Phone 2"
 msgstr "Telèfon 2"
 
-#: shipanaro/models.py:115
+#: shipanaro/models.py:123
 msgid "Newsletter"
 msgstr "Butlletí"
 
@@ -413,3 +386,12 @@ msgstr "Sortir"
 #: shipanaro/views.py:14
 msgid "Home"
 msgstr "Casa"
+
+#~ msgid "New"
+#~ msgstr "Nou"
+
+#~ msgid "Old"
+#~ msgstr "Antic"
+
+#~ msgid "Pads"
+#~ msgstr "Pads"
