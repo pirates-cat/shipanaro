@@ -19,6 +19,7 @@ django-crispy-forms = "*"
 django = "==3.2"
 crispy-bootstrap4 = "==2022.1"
 pillow = "==10.2.0"
+granian = "*"
 
 [dev-packages]
 wheel = "*"

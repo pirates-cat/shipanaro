@@ -53,4 +53,14 @@ publish:
 k8s-restart:
 	kubectl rollout restart deploy/${IMAGE}
 
+serve:
+	granian --interface wsgi shipanaro.wsgi:application --workers 4 --threads 4
+
+update:
+	git pull || echo "Cannot pull"
+	pipenv install
+	pipenv run ./manage.py compilemessages
+	pipenv run ./manage.py migrate
+	pipenv run ./manage.py collectstatic --noinput
+
 .PHONY: init-data clean-data lint run stop test ldap-test
