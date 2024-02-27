@@ -65,6 +65,7 @@ ship_*/
 
 /static/
 !.gitkeep
+/media/
 
 local_settings.py
 

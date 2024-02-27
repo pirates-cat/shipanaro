@@ -66,6 +66,11 @@ class Membership(models.Model):
         verbose_name=_("ID Type"),
         choices=NIDS,
     )
+    id_photo = models.ImageField(
+        upload_to="id_photos",
+        verbose_name=_("ID Photo"),
+        null=True,
+    )
     address = models.CharField(
         verbose_name=_("Address"),
         max_length=140,
