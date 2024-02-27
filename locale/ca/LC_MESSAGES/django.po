@@ -243,7 +243,7 @@ msgstr "Tipus d'identificació"
 
 #: shipanaro/models.py:72
 msgid "Use a picture that includes both sides of an ID card"
-msgstr "Utilitza una foto on es vegin les dues cares del document"
+msgstr "Utilitza una foto on es vegin les dues cares del document (max 10Mb)"
 
 #: shipanaro/models.py:73
 msgid "ID Photo"

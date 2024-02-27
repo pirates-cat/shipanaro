@@ -26,8 +26,8 @@ GENDERS = (
 )
 
 NIDS = (
-    (7240, _("Passport")),
     (7241, _("Documento Nacional de Identidad")),
+    (7240, _("Passport")),
     (7242, _("Número de Identificación de Extranjeros")),
     (0, _("Unknown")),
 )
