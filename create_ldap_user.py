@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-from humans import directory
+from django.conf import settings
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
@@ -10,6 +10,9 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     uid = sys.argv[3]
+
+    settings.configure()
+    from humans import directory
 
     conn = directory.connect()
     user_dn, user_attrs = directory.create_user(conn, username, uid)

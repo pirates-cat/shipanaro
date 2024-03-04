@@ -69,6 +69,7 @@ jobs:
           pipenv run flake8 . --count --exit-zero --max-complexity=12 --max-line-length=127 --statistics --exclude=node_modules,migrations,humans/legacy/export.py
       - name: Test
         env:
+          DJANGO_SETTINGS_MODULE: shipanaro.settings
           SHIPANARO_DATABASE_URL: postgres://postgres@localhost/postgres
           SHIPANARO_LDAP_URL: "ldap://localhost"
           SHIPANARO_LDAP_BIND_DN: "cn=admin,dc=pirata,dc=cat"
