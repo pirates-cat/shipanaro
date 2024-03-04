@@ -1,11 +1,9 @@
-#!/usr/bin/env python
-import sys
-from base64 import b64encode
-from hashlib import md5
 from os import environ
 
 import ldap
 import ldap.modlist as modlist
+
+from .auth.hashers import make_ldap_password
 
 LDAP_URL = environ.get("SHIPANARO_LDAP_URL", "ldap://localhost")
 LDAP_BIND_DN = environ.get("SHIPANARO_LDAP_BIND_DN", "cn=admin,dc=pirata,dc=cat")
@@ -48,7 +46,6 @@ def delete_user(connection, username):
 
 
 def set_password(connection, user_dn, password):
-    hashed_password = b64encode(md5(password.encode("utf-8")).digest())
-    password_value = b"{MD5}" + hashed_password
+    password_value = make_ldap_password(password)
     add_pass = [(ldap.MOD_REPLACE, "userpassword", [password_value])]
     connection.modify_s(user_dn, add_pass)
