@@ -21,13 +21,15 @@
 </a>
 {% endblock %}
 {% block extranav %}
-<li class="nav-item">
-  <a
-    class="nav-link"
-    href="https://participa.pirata.cat/contacte"
-    title="{% trans 'Contacte' %}"
-    ><i class="fas fa-envelope mr-2"></i
-    ><span class="d-lg-none">{% trans 'Contacte' %}</span></a
-  >
-</li>
+  {% comment "broken link" %}
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      href="https://participa.pirata.cat/contacte"
+      title="{% trans 'Contacte' %}"
+      ><i class="fas fa-envelope mr-2"></i
+      ><span class="d-lg-none">{% trans 'Contacte' %}</span></a
+    >
+  </li>
+  {% endcomment %}
 {% endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-27 16:43+0000\n"
+"POT-Creation-Date: 2024-03-04 17:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: humans/templates/shipanaro/base.html:28
-#: humans/templates/shipanaro/base.html:30
+#: humans/templates/shipanaro/base.html:29
+#: humans/templates/shipanaro/base.html:31
 msgid "Contacte"
 msgstr "Contacte"
 
@@ -85,35 +85,37 @@ msgstr ""
 msgid "Eina de missatgeria instantània per a grups."
 msgstr ""
 
-#: shipanaro/admin.py:108
-#, fuzzy
-#| msgid "Contacte"
+#: shipanaro/admin.py:48
+msgid "Send password reset email"
+msgstr "Envia correu per reiniciar contrasenya"
+
+#: shipanaro/admin.py:117
 msgid "Contact"
 msgstr "Contacte"
 
-#: shipanaro/admin.py:117 shipanaro/models.py:77
+#: shipanaro/admin.py:126 shipanaro/models.py:84
 msgid "Address"
 msgstr "Adreça"
 
-#: shipanaro/admin.py:130
+#: shipanaro/admin.py:139
 msgid "Status"
 msgstr "Estat"
 
-#: shipanaro/admin.py:139 shipanaro/models.py:102
+#: shipanaro/admin.py:148 shipanaro/models.py:109
 msgid "Notes"
 msgstr "Notes"
 
-#: shipanaro/admin.py:142
+#: shipanaro/admin.py:151
 msgid "Legacy"
 msgstr "Històric"
 
 #: shipanaro/auth/forms.py:78
 msgid "first name"
-msgstr ""
+msgstr "nom"
 
 #: shipanaro/auth/forms.py:79
 msgid "last name"
-msgstr ""
+msgstr "cognom"
 
 #: shipanaro/auth/forms.py:147 shipanaro/templates/registration/profile.html:13
 msgid "Submit"
@@ -157,119 +159,119 @@ msgstr "Acceptar"
 msgid "Reject"
 msgstr "Rebutjar"
 
-#: shipanaro/models.py:9 shipanaro/models.py:18
+#: shipanaro/models.py:16 shipanaro/models.py:25
 msgid "Male"
 msgstr "Home"
 
-#: shipanaro/models.py:10 shipanaro/models.py:19
+#: shipanaro/models.py:17 shipanaro/models.py:26
 msgid "Female"
 msgstr "Dona"
 
-#: shipanaro/models.py:11
+#: shipanaro/models.py:18
 msgid "Not Applicable"
 msgstr "No aplicable"
 
-#: shipanaro/models.py:20
+#: shipanaro/models.py:27
 msgid "Agender"
 msgstr "Agènere"
 
-#: shipanaro/models.py:21
+#: shipanaro/models.py:28
 msgid "Fluid"
 msgstr "Gènere fluid"
 
-#: shipanaro/models.py:22
+#: shipanaro/models.py:29
 msgid "Non-binary"
 msgstr "Gènere no binari"
 
-#: shipanaro/models.py:23
+#: shipanaro/models.py:30
 msgid "Pangender"
 msgstr "Pangènere"
 
-#: shipanaro/models.py:24
+#: shipanaro/models.py:31
 msgid "Transgender"
 msgstr "Transgènere"
 
-#: shipanaro/models.py:25
+#: shipanaro/models.py:32
 msgid "Gender non-conforming"
 msgstr "Gènere no conforme"
 
-#: shipanaro/models.py:29
-msgid "Passport"
-msgstr "Passaport"
-
-#: shipanaro/models.py:30
+#: shipanaro/models.py:36
 msgid "Documento Nacional de Identidad"
 msgstr "DNI"
 
-#: shipanaro/models.py:31
+#: shipanaro/models.py:37
+msgid "Passport"
+msgstr "Passaport"
+
+#: shipanaro/models.py:38
 msgid "Número de Identificación de Extranjeros"
 msgstr "NIE"
 
-#: shipanaro/models.py:32
+#: shipanaro/models.py:39
 msgid "Unknown"
 msgstr "Desconegut"
 
-#: shipanaro/models.py:41
+#: shipanaro/models.py:48
 msgid "Assigned sex"
 msgstr "Sexe assignat"
 
-#: shipanaro/models.py:45
+#: shipanaro/models.py:52
 msgid "Gender"
 msgstr "Gènere"
 
-#: shipanaro/models.py:49
+#: shipanaro/models.py:56
 msgid "Custom Gender"
 msgstr "Gènere a mida"
 
-#: shipanaro/models.py:55
+#: shipanaro/models.py:62
 msgid "Birthday"
 msgstr "Data de naixement"
 
-#: shipanaro/models.py:56
+#: shipanaro/models.py:63
 msgid "Format: dd/mm/yyyy"
 msgstr "Format: dd/mm/yyyy"
 
-#: shipanaro/models.py:59
+#: shipanaro/models.py:66
 msgid "Nationality"
 msgstr "Nacionalitat"
 
-#: shipanaro/models.py:63
+#: shipanaro/models.py:70
 msgid "ID Number"
 msgstr "Número d'identificació"
 
-#: shipanaro/models.py:67
+#: shipanaro/models.py:74
 msgid "ID Type"
 msgstr "Tipus d'identificació"
 
-#: shipanaro/models.py:72
+#: shipanaro/models.py:79
 msgid "Use a picture that includes both sides of an ID card"
 msgstr "Utilitza una foto on es vegin les dues cares del document (max 10Mb)"
 
-#: shipanaro/models.py:73
+#: shipanaro/models.py:80
 msgid "ID Photo"
 msgstr "Fotografia del document d'identificació"
 
-#: shipanaro/models.py:81
+#: shipanaro/models.py:88
 msgid "City"
 msgstr "Municipi"
 
-#: shipanaro/models.py:85
+#: shipanaro/models.py:92
 msgid "Postcode"
 msgstr "Codi Postal"
 
-#: shipanaro/models.py:89
+#: shipanaro/models.py:96
 msgid "Province"
 msgstr "Província"
 
-#: shipanaro/models.py:93
+#: shipanaro/models.py:100
 msgid "Phone"
 msgstr "Telèfon"
 
-#: shipanaro/models.py:97
+#: shipanaro/models.py:104
 msgid "Phone 2"
 msgstr "Telèfon 2"
 
-#: shipanaro/models.py:130
+#: shipanaro/models.py:137
 msgid "Newsletter"
 msgstr "Butlletí"
 
