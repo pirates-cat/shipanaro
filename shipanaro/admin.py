@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from django_admin_listfilter_dropdown.filters import DropdownFilter
 from rangefilter.filter import DateRangeFilter
 from shipanaro.auth.models import User, Group
+from shipanaro.auth.utils import send_reset_password_email
 from shipanaro.models import Membership, Subscription
 
 admin.site.site_header = admin.site.site_title = settings.SHIPANARO_SITE_NAME
@@ -44,7 +45,14 @@ except admin.sites.NotRegistered:
 admin.site.register(Group, ShipanaroGroupAdmin)
 
 
+@admin.action(description=_("Send password reset email"))
+def send_password_reset(modeladmin, request, queryset):
+    for member in queryset:
+        send_reset_password_email(member.user.email)
+
+
 class MembershipAdmin(ShipanaroModelAdmin):
+    actions = [send_password_reset]
     list_display = (
         "uid",
         "activated",

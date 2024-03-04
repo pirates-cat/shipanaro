@@ -23,6 +23,9 @@ lint:
 run: stop
 	docker-compose up --build
 
+infra:
+	docker-compose up db ldap ldapadmin
+
 stop:
 	docker-compose down
 
