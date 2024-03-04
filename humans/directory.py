@@ -34,7 +34,6 @@ def create_user(connection, username, uid_number):
 
     user_ldif = modlist.addModlist(user_attrs)
     result = connection.add_s(user_dn, user_ldif)
-    print(result)
     return user_dn, user_attrs
 
 

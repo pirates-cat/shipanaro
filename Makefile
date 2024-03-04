@@ -9,7 +9,10 @@ test-user-delete:
 	docker-compose run --entrypoint 'ldapdelete -x -H ldap://ldap -D "cn=admin,dc=pirata,dc=cat" -w admin "cn=tester,dc=pirata,dc=cat"' ldap || echo "User doesn't exist"
 
 test-user-create: test-user-delete
-	docker-compose run web ./create_ldap_user.py tester tester
+	docker-compose run web ./create_ldap_user.py tester tester 1001
+
+test-users-delete:
+	make ldap-list | grep tester | grep sn | cut -d ' ' -f2 | xargs -n1 ./delete_ldap_user.py
 
 shell:
 	./indocker.sh ./manage.py shell
@@ -29,7 +32,7 @@ infra:
 stop:
 	docker-compose down
 
-test: test-user-create
+test: # test-user-create
 	docker-compose run web ./manage.py test -v2
 
 collected: static
