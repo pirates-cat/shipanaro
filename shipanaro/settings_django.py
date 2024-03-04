@@ -142,9 +142,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # TODO: prod settings? is this used? the package django-ses in not in Pipfile
-# EMAIL_BACKEND = 'django_ses.SESBackend'
+if DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+else:
+    EMAIL_BACKEND = "django_ses.SESBackend"
+
 #  "from" for regular emails:
 DEFAULT_FROM_EMAIL = "partit@pirates.cat"
 # "from" for error messages sent to admins:
