@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
+from textwrap import dedent
+
+from django.core.mail import mail_managers
 from django.db import models
+from django.db.models import signals
+from django.dispatch import receiver
+from django.urls import reverse
 from django.utils.translation import gettext as _
+from shipanaro import settings
 from shipanaro.auth.models import User, Group
 
 # Based on ISO 5218
@@ -143,3 +150,24 @@ class Subscription(models.Model):
 
 class Nexus(models.Model):
     group = models.OneToOneField(Group, on_delete=models.CASCADE)
+
+
+@receiver(signals.post_save, sender=Membership, dispatch_uid="update_membership")
+def send_new_member_email(sender, instance: Membership, created=False, **kwargs):
+    if created:
+        url_path = reverse("admin:shipanaro_membership_change", args=[instance.id])
+
+        mail_managers(
+            f"[{settings.SHIPANARO_SITE_NAME}] Nou afiliat a tripulació",
+            dedent(
+                f"""
+                Un nou membre s'ha donat d'alta:
+
+                    id:     {instance.id}
+                    usuari: {instance.user.username}
+                    correu: {instance.user.email or '(sense correu)'}
+
+                Revisa'l a {settings.SHIPANARO_SITE_URL}{url_path}
+                """,
+            ),
+        )

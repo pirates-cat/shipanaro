@@ -35,6 +35,11 @@ ADMINS = [
     ("Dario", "dario@pirates.cat"),
 ]
 
+MANAGERS = [
+    ("Secretaria", "secretaria@pirates.cat"),
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [

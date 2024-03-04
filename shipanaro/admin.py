@@ -47,6 +47,7 @@ admin.site.register(Group, ShipanaroGroupAdmin)
 class MembershipAdmin(ShipanaroModelAdmin):
     list_display = (
         "uid",
+        "activated",
         "user__last_name",
         "user__first_name",
         "user__username",
