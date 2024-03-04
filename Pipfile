@@ -4,22 +4,22 @@ url = "https://pypi.org/simple"
 name = "pypi"
 
 [packages]
+crispy-bootstrap4 = "==2022.1"
+django = "==3.2.24"
 django-admin-list-filter-dropdown = "==1.0.3"
 django-admin-rangefilter = "==0.6.2"
 django-auth-ldap = "==4.3.0"
 django-bootstrap4 = "==2.2.0"
+django-crispy-forms = "*"
 django-export-action = "==0.1.1"
 django-hashers-passlib = "*"
 django-phonenumber-field = {extras = [ "phonenumbers",], version = "==4.0.0."}
 environs = {extras = [ "django",]}
+granian = "*"
 gunicorn = "*"
+pillow = "==10.2.0"
 psycopg2-binary = "==2.8.6"
 pytz = "==2020.1"
-django-crispy-forms = "*"
-django = "==3.2"
-crispy-bootstrap4 = "==2022.1"
-pillow = "==10.2.0"
-granian = "*"
 
 [dev-packages]
 wheel = "*"
