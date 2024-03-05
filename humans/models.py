@@ -1,4 +1,7 @@
-from django.db.models import Max
+import logging
+
+from django.db.models import Max, signals
+from django.dispatch import receiver
 from django.contrib.auth.models import AbstractUser
 
 from django_auth_ldap.backend import LDAPBackend, _LDAPUser
@@ -40,3 +43,11 @@ class User(AbstractUser):
 
     class Meta:
         db_table = "auth_user"
+
+
+@receiver(signals.pre_delete, sender=User, dispatch_uid="delete_user")
+def send_new_member_email(sender, instance: User, **kwargs):
+    try:
+        directory.delete_user(directory.connect(), instance.username)
+    except Exception as e:
+        logging.exception(f"Cannot delete LDAP user {instance.username}", e)
