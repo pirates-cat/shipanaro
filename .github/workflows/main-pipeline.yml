@@ -58,7 +58,7 @@ jobs:
           python-version: 3.8
       - name: Install dependencies
         run: |
-          sudo apt-get update && sudo apt-get install build-essential python3-dev libldap2-dev libsasl2-dev
+          sudo apt-get update && sudo apt-get install build-essential python3-dev libldap2-dev libsasl2-dev gettext
           pip install pipenv
           pipenv install -d
       - name: Lint with flake8
@@ -76,5 +76,6 @@ jobs:
           SHIPANARO_LDAP_BIND_PASSWORD: "admin"
           SHIPANARO_LDAP_USER_SEARCH: "(&(objectclass=inetOrgPerson)(uid=%(user)s))"
         run: |
+          pipenv run ./manage.py compilemessages
           pipenv run ./create_ldap_user.py tester tester 1234
           pipenv run ./manage.py test
