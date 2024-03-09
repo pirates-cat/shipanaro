@@ -14,13 +14,13 @@ django-crispy-forms = "*"
 django-export-action = "==0.1.1"
 django-hashers-passlib = "*"
 django-phonenumber-field = {extras = [ "phonenumbers",], version = "==4.0.0."}
+django-ses = "*"
 environs = {extras = [ "django",]}
 granian = "*"
 gunicorn = "*"
 pillow = "==10.2.0"
 psycopg2-binary = "==2.8.6"
 pytz = "==2020.1"
-django-ses = "*"
 
 [dev-packages]
 wheel = "*"

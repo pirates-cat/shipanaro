@@ -1,7 +1,9 @@
 from os import environ
 
 import ldap
-import ldap.modlist as modlist
+from ldap import modlist
+from ldap.ldapobject import LDAPObject
+
 
 from .auth.hashers import make_ldap_password
 
@@ -10,7 +12,7 @@ LDAP_BIND_DN = environ.get("SHIPANARO_LDAP_BIND_DN", "cn=admin,dc=pirata,dc=cat"
 LDAP_BIND_PASS = environ.get("SHIPANARO_LDAP_BIND_PASSWORD", "admin")
 
 
-def connect():
+def connect() -> LDAPObject:
     ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)
     connection = ldap.initialize(LDAP_URL)
     connection.simple_bind_s(LDAP_BIND_DN, LDAP_BIND_PASS)
@@ -35,6 +37,19 @@ def create_user(connection, username, uid_number):
     user_ldif = modlist.addModlist(user_attrs)
     result = connection.add_s(user_dn, user_ldif)
     return user_dn, user_attrs
+
+
+def get_user(connection, username):
+    name = username.encode("utf-8")
+    base_dn = "dc=pirata,dc=cat"
+    user_dn = f"cn={name.decode()},{base_dn}"
+
+    try:
+        result = connection.search_s(user_dn, ldap.SCOPE_BASE)
+        _, attrs = result[0]
+        return attrs
+    except:
+        return None
 
 
 def delete_user(connection, username):
