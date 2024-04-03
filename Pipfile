@@ -18,7 +18,7 @@ django-ses = "*"
 environs = {extras = [ "django",]}
 granian = "*"
 gunicorn = "*"
-pillow = "==10.2.0"
+pillow = "==10.3.0"
 psycopg2-binary = "==2.8.6"
 pytz = "==2020.1"
 
