@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 crispy-bootstrap4 = "==2022.1"
-django = "==3.2.24"
+django = "==3.2.25"
 django-admin-list-filter-dropdown = "==1.0.3"
 django-admin-rangefilter = "==0.6.2"
 django-auth-ldap = "==4.3.0"
