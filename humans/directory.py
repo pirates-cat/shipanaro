@@ -40,12 +40,9 @@ def create_user(connection, username, uid_number):
 
 
 def get_user(connection, username):
-    name = username.encode("utf-8")
-    base_dn = "dc=pirata,dc=cat"
-    user_dn = f"cn={name.decode()},{base_dn}"
-
+    search_dn = f"uid={username},ou=afiliats,dc=pirata,dc=cat"
     try:
-        result = connection.search_s(user_dn, ldap.SCOPE_BASE)
+        result = connection.search_s(search_dn, ldap.SCOPE_BASE)
         _, attrs = result[0]
         return attrs
     except:
