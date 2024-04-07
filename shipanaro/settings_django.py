@@ -28,6 +28,7 @@ SECRET_KEY = env("SHIPANARO_SECRET_KEY", "notsecret")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("SHIPANARO_DEBUG", False)
+DEBUG_EMAIL = env.bool("SHIPANARO_DEBUG_EMAIL", False)
 
 ALLOWED_HOSTS = env("SHIPANARO_ALLOWED_HOSTS", "tripulacio.pirates.cat").split(",")
 
@@ -147,8 +148,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 
-# TODO: prod settings? is this used? the package django-ses in not in Pipfile
-if DEBUG:
+if DEBUG_EMAIL:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 else:
     EMAIL_BACKEND = "django_ses.SESBackend"

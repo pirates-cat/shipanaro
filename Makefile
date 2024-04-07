@@ -60,7 +60,7 @@ k8s-restart:
 	kubectl rollout restart deploy/${IMAGE}
 
 serve:
-	granian --host 0.0.0.0 --port 8000 --interface wsgi shipanaro.wsgi:application --workers 4 --threads 4
+	gunicorn --bind 0.0.0.0:8000 --workers 2 shipanaro.wsgi
 
 update:
 	git pull || echo "Cannot pull"
