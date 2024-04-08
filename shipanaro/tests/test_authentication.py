@@ -20,6 +20,8 @@ class AuthenticationTest(TestCase):
         self.user = User(
             username=name,
             email=f"{name}@pirates.cat",
+            first_name=name,
+            last_name="Pirata",
         )
         self.user.save()
 
