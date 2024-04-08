@@ -37,22 +37,26 @@ class LDAPIntegrationTest(TestCase):
     def test_new_user_is_created_in_ldap_with_no_password(self):
         user = self.create_user()
 
-        ldap_user = directory.get_user(self.connection, user.username)
-        self.assertEquals(ldap_user["cn"][0].decode(), user.username)
-        self.assertNotIn("userPassword", ldap_user.keys())
+        uid, attrs = directory.get_user(self.connection, user.username)
+
+        self.assertEquals(uid, f"uid={user.username},ou=afiliats,dc=pirata,dc=cat")
+        self.assertEquals(attrs["cn"][0].decode(), user.username)
+        self.assertNotIn("userPassword", attrs.keys())
 
     def test_save_password_sets_password_in_ldap(self):
         user = self.create_user()
         user.set_password(PASSWORD)
         user.save()
 
-        ldap_user = directory.get_user(self.connection, user.username)
-        self.assertEquals(ldap_user["cn"][0].decode(), user.username)
-        self.assertEquals(ldap_user["userPassword"][0].decode()[0:6], "{SSHA}")
+        _, attrs = directory.get_user(self.connection, user.username)
+
+        self.assertEquals(attrs["cn"][0].decode(), user.username)
+        self.assertEquals(attrs["userPassword"][0].decode()[0:6], "{SSHA}")
 
     def test_deleted_user_is_removed_from_ldap(self):
         user = self.create_user()
         user.delete()
 
-        ldap_user = directory.get_user(self.connection, user.username)
-        self.assertIsNone(ldap_user)
+        _, attrs = directory.get_user(self.connection, user.username)
+
+        self.assertIsNone(attrs)

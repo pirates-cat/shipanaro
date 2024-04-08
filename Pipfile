@@ -16,11 +16,12 @@ django-hashers-passlib = "*"
 django-phonenumber-field = {extras = [ "phonenumbers",], version = "==4.0.0."}
 django-ses = "*"
 environs = {extras = [ "django",]}
-granian = "*"
 gunicorn = "*"
 pillow = "==10.3.0"
 psycopg2-binary = "==2.8.6"
 pytz = "==2020.1"
+setuptools = "~=69.2"
+pip = "~=24.0"
 
 [dev-packages]
 wheel = "*"

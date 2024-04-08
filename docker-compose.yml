@@ -14,7 +14,7 @@ services:
       SHIPANARO_LDAP_URL: "ldap://ldap"
       SHIPANARO_LDAP_BIND_DN: "cn=admin,dc=pirata,dc=cat"
       SHIPANARO_LDAP_BIND_PASSWORD: "admin"
-      SHIPANARO_LDAP_USER_SEARCH: "(&(objectclass=inetOrgPerson)(uid=%(user)s))"
+      SHIPANARO_LDAP_USER_SEARCH: "(&(objectclass=pilotPerson)(uid=%(user)s))"
     ports:
       - 8010:8000
     volumes:

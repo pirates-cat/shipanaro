@@ -74,7 +74,7 @@ jobs:
           SHIPANARO_LDAP_URL: "ldap://localhost"
           SHIPANARO_LDAP_BIND_DN: "cn=admin,dc=pirata,dc=cat"
           SHIPANARO_LDAP_BIND_PASSWORD: "admin"
-          SHIPANARO_LDAP_USER_SEARCH: "(&(objectclass=inetOrgPerson)(uid=%(user)s))"
+          SHIPANARO_LDAP_USER_SEARCH: "(&(objectclass=pilotPerson)(uid=%(user)s))"
         run: |
           pipenv run ./manage.py compilemessages
           pipenv run ./create_ldap_user.py tester tester 1234

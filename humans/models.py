@@ -24,15 +24,15 @@ class User(AbstractUser):
             self.__ldap__set_password(password)
 
     def __ldap__save(self):
-        max_user_id = User.objects.aggregate(Max("id"))["id__max"] or 1
         connection = directory.connect()
-        directory.create_user(connection, self.username, max_user_id + 10000)
+        directory.create_user(connection, self.username, self.email)
         self.is_active = False
         return
 
     def __ldap__set_password(self, password):
         ldap_user = _LDAPUser(LDAPBackend(), username=self.username)
         if ldap_user.dn is None:
+            logging.error(f"User {self.username} not found in LDAP")
             return
         conn = ldap_user.connection
         directory.set_password(conn, ldap_user.dn, password)
@@ -46,7 +46,7 @@ class User(AbstractUser):
 
 
 @receiver(signals.pre_delete, sender=User, dispatch_uid="delete_user")
-def send_new_member_email(sender, instance: User, **kwargs):
+def delete_associated_ldap_user(sender, instance: User, **kwargs):
     try:
         directory.delete_user(directory.connect(), instance.username)
     except Exception as e:

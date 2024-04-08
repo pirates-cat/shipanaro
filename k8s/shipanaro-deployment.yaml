@@ -59,7 +59,7 @@ spec:
                   name: ldap-secrets
                   key: password
             - name: SHIPANARO_LDAP_USER_SEARCH
-              value: '(&(objectclass=inetOrgPerson)(uid=%(user)s))'
+              value: '(&(objectclass=pilotPerson)(uid=%(user)s))'
           ports:
             - containerPort: 8000
           resources:
