@@ -21,13 +21,14 @@ def connect() -> LDAPObject:
     return connection
 
 
-def create_user(connection, username, email):
-    name = username.encode("utf-8")
-    user_dn = f"uid={username},{ORG_UNIT}"
+def create_user(connection, user, email):
+    name = user.username.encode("utf-8")
+    user_dn = f"uid={user.username},{ORG_UNIT}"
 
     user_attrs = {}
     user_attrs["objectClass"] = [b"pilotPerson"]
-    user_attrs["cn"] = (name,)
+    user_attrs["cn"] = (user.first_name.encode("utf-8"),)
+    user_attrs["sn"] = (user.last_name.encode("utf-8"),)
     user_attrs["mail"] = (email.encode("utf-8"),)
     user_attrs["sn"] = (name,)
     user_attrs["uid"] = (name.lower(),)

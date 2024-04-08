@@ -18,12 +18,14 @@ class ShipanaroModelAdmin(ModelAdmin):
 
 class ShipanaroUserAdmin(UserAdmin, ShipanaroModelAdmin):
     list_display = (
+        "id",
         "username",
         "email",
         "first_name",
         "last_name",
         "is_staff",
         "is_active",
+        "date_joined",
     )
 
 
