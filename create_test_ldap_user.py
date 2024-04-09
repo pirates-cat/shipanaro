@@ -26,6 +26,7 @@ if __name__ == "__main__":
     from humans import directory
 
     conn = directory.connect()
+    ou, ou_attrs = directory.create_ou(conn, "afiliats")
     user_dn, user_attrs = directory.create_user(conn, user, email)
     directory.set_password(conn, user_dn, password)
 
