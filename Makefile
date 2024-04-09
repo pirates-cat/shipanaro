@@ -63,8 +63,7 @@ serve:
 		--bind 0.0.0.0:8000 \
 		--workers 2 shipanaro.wsgi \
 		--capture-output --log-file="-" \
-		--access-logfile="-" \
-		"$@" | tee -a tripulacio.log
+		--access-logfile="-" | tee -a tripulacio.log
 
 update:
 	git pull || echo "Cannot pull"
