@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-04 17:28+0000\n"
+"POT-Creation-Date: 2024-04-09 11:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,27 +85,31 @@ msgstr ""
 msgid "Eina de missatgeria instantània per a grups."
 msgstr ""
 
-#: shipanaro/admin.py:48
+#: shipanaro/admin.py:50
+msgid "Create user in LDAP"
+msgstr "Crear usuari a LDAP"
+
+#: shipanaro/admin.py:60
 msgid "Send password reset email"
 msgstr "Envia correu per reiniciar contrasenya"
 
-#: shipanaro/admin.py:117
+#: shipanaro/admin.py:129
 msgid "Contact"
 msgstr "Contacte"
 
-#: shipanaro/admin.py:126 shipanaro/models.py:84
+#: shipanaro/admin.py:138 shipanaro/models.py:84
 msgid "Address"
 msgstr "Adreça"
 
-#: shipanaro/admin.py:139
+#: shipanaro/admin.py:151
 msgid "Status"
 msgstr "Estat"
 
-#: shipanaro/admin.py:148 shipanaro/models.py:109
+#: shipanaro/admin.py:160 shipanaro/models.py:109
 msgid "Notes"
 msgstr "Notes"
 
-#: shipanaro/admin.py:151
+#: shipanaro/admin.py:163
 msgid "Legacy"
 msgstr "Històric"
 

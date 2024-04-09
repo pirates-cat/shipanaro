@@ -1,2 +1,2 @@
 #!/bin/bash
-docker-compose exec web $@
+docker-compose run web $@
