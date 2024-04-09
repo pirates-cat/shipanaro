@@ -11,7 +11,8 @@ LDAP_URL = environ.get("SHIPANARO_LDAP_URL", "ldap://localhost")
 LDAP_BIND_DN = environ.get("SHIPANARO_LDAP_BIND_DN", "cn=admin,dc=pirata,dc=cat")
 LDAP_BIND_PASS = environ.get("SHIPANARO_LDAP_BIND_PASSWORD", "admin")
 
-ORG_UNIT = "ou=afiliats,dc=pirata,dc=cat"
+DOMAIN = "dc=pirata,dc=cat"
+ORG_UNIT = f"ou=afiliats,{DOMAIN}"
 
 
 def connect() -> LDAPObject:
@@ -36,6 +37,18 @@ def create_user(connection, user, email):
     user_ldif = modlist.addModlist(user_attrs)
     result = connection.add_s(user_dn, user_ldif)
     return user_dn, user_attrs
+
+
+def create_ou(connection, name):
+    dn = f"ou={name},{DOMAIN}"
+
+    attrs = {}
+    attrs["objectClass"] = [b"organizationalUnit"]
+    attrs["ou"] = (name.encode("utf-8"),)
+
+    ldif = modlist.addModlist(attrs)
+    result = connection.add_s(dn, ldif)
+    return dn, attrs
 
 
 def get_user(connection, username):
