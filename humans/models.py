@@ -25,7 +25,7 @@ class User(AbstractUser):
 
     def __ldap__save(self):
         connection = directory.connect()
-        directory.create_user(connection, self, self.email)
+        directory.create_user(connection, self)
         return
 
     def __ldap__set_password(self, password):

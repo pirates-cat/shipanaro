@@ -47,6 +47,16 @@ except admin.sites.NotRegistered:
 admin.site.register(Group, ShipanaroGroupAdmin)
 
 
+@admin.action(description=_("Create user in LDAP"))
+def create_ldap_user(modeladmin, request, queryset):
+    from humans import directory
+
+    conn = directory.connect()
+
+    for member in queryset:
+        directory.create_user(conn, member.user)
+
+
 @admin.action(description=_("Send password reset email"))
 def send_password_reset(modeladmin, request, queryset):
     for member in queryset:
@@ -54,12 +64,12 @@ def send_password_reset(modeladmin, request, queryset):
 
 
 class MembershipAdmin(ShipanaroModelAdmin):
-    actions = [send_password_reset]
+    actions = [send_password_reset, create_ldap_user]
     list_display = (
         "uid",
         "activated",
-        "user__last_name",
         "user__first_name",
+        "user__last_name",
         "user__username",
         "user__email",
         "birthday",
