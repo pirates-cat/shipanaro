@@ -76,8 +76,17 @@ class Membership(models.Model):
     )
     id_photo = models.ImageField(
         upload_to="id_photos",
-        help_text=_("Use a picture that includes both sides of an ID card"),
+        help_text=_(
+            "Use a picture that includes both sides of an ID card, or add a second photo below"
+        ),
         verbose_name=_("ID Photo"),
+        null=True,
+    )
+    id_photo2 = models.ImageField(
+        upload_to="id_photos",
+        help_text=_("Additional picture for id side 2"),
+        verbose_name=_("ID Photo 2"),
+        blank=True,
         null=True,
     )
     address = models.CharField(

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-09 11:57+0000\n"
+"POT-Creation-Date: 2024-04-09 18:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,7 +97,7 @@ msgstr "Envia correu per reiniciar contrasenya"
 msgid "Contact"
 msgstr "Contacte"
 
-#: shipanaro/admin.py:138 shipanaro/models.py:84
+#: shipanaro/admin.py:138 shipanaro/models.py:92
 msgid "Address"
 msgstr "Adreça"
 
@@ -105,7 +105,7 @@ msgstr "Adreça"
 msgid "Status"
 msgstr "Estat"
 
-#: shipanaro/admin.py:160 shipanaro/models.py:109
+#: shipanaro/admin.py:160 shipanaro/models.py:117
 msgid "Notes"
 msgstr "Notes"
 
@@ -247,35 +247,45 @@ msgstr "Número d'identificació"
 msgid "ID Type"
 msgstr "Tipus d'identificació"
 
-#: shipanaro/models.py:79
-msgid "Use a picture that includes both sides of an ID card"
-msgstr "Utilitza una foto on es vegin les dues cares del document (max 10Mb)"
-
 #: shipanaro/models.py:80
+msgid ""
+"Use a picture that includes both sides of an ID card, or add a second photo "
+"below"
+msgstr "Utilitza una foto on es vegin les dues cares del document (max 10Mb), o afegeix una segona foto més avall"
+
+#: shipanaro/models.py:82
 msgid "ID Photo"
 msgstr "Fotografia del document d'identificació"
 
+#: shipanaro/models.py:87
+msgid "Additional picture for id side 2"
+msgstr "Foto addicional per l'altra banda del document"
+
 #: shipanaro/models.py:88
+msgid "ID Photo 2"
+msgstr "Fotografia addicional del document d'identificació"
+
+#: shipanaro/models.py:96
 msgid "City"
 msgstr "Municipi"
 
-#: shipanaro/models.py:92
+#: shipanaro/models.py:100
 msgid "Postcode"
 msgstr "Codi Postal"
 
-#: shipanaro/models.py:96
+#: shipanaro/models.py:104
 msgid "Province"
 msgstr "Província"
 
-#: shipanaro/models.py:100
+#: shipanaro/models.py:108
 msgid "Phone"
 msgstr "Telèfon"
 
-#: shipanaro/models.py:104
+#: shipanaro/models.py:112
 msgid "Phone 2"
 msgstr "Telèfon 2"
 
-#: shipanaro/models.py:137
+#: shipanaro/models.py:145
 msgid "Newsletter"
 msgstr "Butlletí"
 
