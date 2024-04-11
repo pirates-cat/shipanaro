@@ -117,6 +117,7 @@ class MembershipAdmin(ShipanaroModelAdmin):
                         "nid_type",
                         "nid",
                         "id_photo",
+                        "id_photo2",
                     ),
                     (
                         "assigned_sex",
