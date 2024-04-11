@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.contrib.admin import ModelAdmin
 from django.contrib.auth.admin import GroupAdmin, UserAdmin
 from django.utils.translation import gettext_lazy as _
@@ -49,18 +49,31 @@ admin.site.register(Group, ShipanaroGroupAdmin)
 
 @admin.action(description=_("Create user in LDAP"))
 def create_ldap_user(modeladmin, request, queryset):
-    from humans import directory
+    from humans.directory import Directory
 
-    conn = directory.connect()
+    directory = Directory()
 
     for member in queryset:
-        directory.create_user(conn, member.user)
+        try:
+            directory.create_user(member.user)
+            messages.add_message(
+                request, messages.INFO, f"User {member.user.username} created in LDAP"
+            )
+        except Exception as e:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                f"User {member.user.username} cannot be created in LDAP\n{e}",
+            )
 
 
 @admin.action(description=_("Send password reset email"))
 def send_password_reset(modeladmin, request, queryset):
     for member in queryset:
         send_reset_password_email(member.user.email)
+        messages.add_message(
+            request, messages.INFO, f"Password reset email sent {member.user.email}"
+        )
 
 
 class MembershipAdmin(ShipanaroModelAdmin):

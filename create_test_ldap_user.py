@@ -19,6 +19,7 @@ if __name__ == "__main__":
 
     username = sys.argv[1]
     password = sys.argv[2]
+    create_ou = len(sys.argv) > 3 and sys.argv[3] == "--create-ou"
 
     user = User(
         username=username,
@@ -28,11 +29,14 @@ if __name__ == "__main__":
     )
 
     settings.configure()
-    from humans import directory
+    from humans.directory import Directory
 
-    conn = directory.connect()
-    ou, ou_attrs = directory.create_ou(conn, "afiliats")
-    user_dn, user_attrs = directory.create_user(conn, user)
-    directory.set_password(conn, user_dn, password)
+    directory = Directory()
+
+    if create_ou:
+        ou, ou_attrs = directory.create_ou("afiliats")
+
+    user_dn, user_attrs = directory.create_user(user)
+    directory.set_password(user_dn, password)
 
     print(f"{user_dn=}\n{password=}\n{user_attrs}")

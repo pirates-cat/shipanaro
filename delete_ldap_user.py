@@ -10,7 +10,9 @@ if __name__ == "__main__":
     username = sys.argv[1]
 
     settings.configure()
-    from humans import directory
+    from humans.directory import Directory
 
-    conn = directory.connect()
-    directory.delete_user(conn, username)
+    directory = Directory()
+    directory.delete_user(username)
+
+    print(f"User '{username}' deleted from LDAP")

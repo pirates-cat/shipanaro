@@ -94,7 +94,7 @@ class AuthenticationTest(TestCase):
             mail.outbox[0].body,
         )
 
-    def test_deleted_user_no_cannot_log_in(self):
+    def test_deleted_user_cannot_log_in(self):
         # set a password first to ensure we have a user in LDAP that can log in
         self.user.set_password(PASSWORD)
         self.user.save()

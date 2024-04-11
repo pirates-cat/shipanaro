@@ -6,7 +6,7 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from humans import directory
+from humans.directory import Directory
 
 User = get_user_model()
 
@@ -18,9 +18,9 @@ class LDAPIntegrationTest(TestCase):
 
     def setUp(self):
         super().setUp()
-        self.connection = directory.connect()
+        self.directory = Directory()
 
-    def create_user(self):
+    def create_user(self, auto_cleanup=True):
         name = f"tester-{randint(0, 10000)}"
         self.user = User(
             username=name,
@@ -29,7 +29,8 @@ class LDAPIntegrationTest(TestCase):
             last_name="Pirata",
         )
         self.user.save()
-        self.addCleanup(self.deleteLeftoverUser)
+        if auto_cleanup:
+            self.addCleanup(self.deleteLeftoverUser)
         return self.user
 
     def deleteLeftoverUser(self):
@@ -39,7 +40,7 @@ class LDAPIntegrationTest(TestCase):
     def test_new_user_is_created_in_ldap_with_no_password(self):
         user = self.create_user()
 
-        uid, attrs = directory.get_user(self.connection, user.username)
+        uid, attrs = self.directory.get_user(user.username)
 
         self.assertEquals(uid, f"uid={user.username},ou=afiliats,dc=pirata,dc=cat")
         self.assertEquals(attrs["cn"][0].decode(), user.username)
@@ -50,15 +51,36 @@ class LDAPIntegrationTest(TestCase):
         user.set_password(PASSWORD)
         user.save()
 
-        _, attrs = directory.get_user(self.connection, user.username)
+        _, attrs = self.directory.get_user(user.username)
 
         self.assertEquals(attrs["cn"][0].decode(), user.username)
         self.assertEquals(attrs["userPassword"][0].decode()[0:6], "{SSHA}")
 
     def test_deleted_user_is_removed_from_ldap(self):
-        user = self.create_user()
+        user = self.create_user(auto_cleanup=False)
         user.delete()
 
-        _, attrs = directory.get_user(self.connection, user.username)
+        _, attrs = self.directory.get_user(user.username)
 
         self.assertIsNone(attrs)
+
+    def test_deactivated_user_is_removed_from_ldap(self):
+        user = self.create_user(auto_cleanup=False)
+        user.is_active = False
+        user.save()
+
+        _, attrs = self.directory.get_user(user.username)
+
+        self.assertIsNone(attrs)
+
+    def test_reactivated_user_is_created_in_ldap(self):
+        user = self.create_user()
+        user.is_active = False
+        user.save()
+
+        user.is_active = True
+        user.save()
+
+        _, attrs = self.directory.get_user(user.username)
+
+        self.assertEquals(attrs["cn"][0].decode(), user.username)
