@@ -9,6 +9,7 @@ from django.urls import reverse
 from django.utils.translation import gettext as _
 from shipanaro import settings
 from shipanaro.auth.models import User, Group
+from humans.directory import Directory
 
 # Based on ISO 5218
 SEXES = (
@@ -141,6 +142,12 @@ class Membership(models.Model):
 
     def __str__(self):
         return self.user.first_name
+
+    @property
+    def ldap_dn(self):
+        directory = Directory()
+        dn, attrs = directory.get_user(self.user.username)
+        return dn if attrs else None
 
 
 SUBSCRIPTION_SERVICES = (("newsletter", _("Newsletter")),)
