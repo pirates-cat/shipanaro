@@ -57,13 +57,51 @@ def create_ldap_user(modeladmin, request, queryset):
         try:
             directory.create_user(member.user)
             messages.add_message(
-                request, messages.INFO, f"User {member.user.username} created in LDAP"
+                request,
+                messages.INFO,
+                _("User %(username)s created in LDAP")
+                % {
+                    "username": member.user.username,
+                },
             )
         except Exception as e:
             messages.add_message(
                 request,
                 messages.ERROR,
-                f"User {member.user.username} cannot be created in LDAP\n{e}",
+                _("User %(username)s cannot be created in LDAP\n%(error)s")
+                % {
+                    "username": member.user.username,
+                    "error": e,
+                },
+            )
+
+
+@admin.action(description=_("Delete user from LDAP"))
+def delete_ldap_user(modeladmin, request, queryset):
+    from humans.directory import Directory
+
+    directory = Directory()
+
+    for member in queryset:
+        try:
+            directory.delete_user(member.user.username)
+            messages.add_message(
+                request,
+                messages.INFO,
+                _("User %(username)s deleted from LDAP")
+                % {
+                    "username": member.user.username,
+                },
+            )
+        except Exception as e:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                _("User %(username)s cannot be deleted from LDAP\n%(error)s")
+                % {
+                    "username": member.user.username,
+                    "error": e,
+                },
             )
 
 
@@ -72,12 +110,21 @@ def send_password_reset(modeladmin, request, queryset):
     for member in queryset:
         send_reset_password_email(member.user.email)
         messages.add_message(
-            request, messages.INFO, f"Password reset email sent {member.user.email}"
+            request,
+            messages.INFO,
+            _("Password reset email sent to %(email)s")
+            % {
+                "email": member.user.email,
+            },
         )
 
 
 class MembershipAdmin(ShipanaroModelAdmin):
-    actions = [send_password_reset, create_ldap_user]
+    actions = [
+        send_password_reset,
+        create_ldap_user,
+        delete_ldap_user,
+    ]
     list_display = (
         "uid",
         "activated",
