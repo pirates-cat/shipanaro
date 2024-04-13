@@ -59,11 +59,14 @@ k8s-restart:
 	kubectl rollout restart deploy/${IMAGE}
 
 serve:
-	gunicorn \
+	exec gunicorn \
 		--bind 0.0.0.0:8000 \
 		--workers 2 shipanaro.mediawsgi \
 		--capture-output --log-file="-" \
 		--access-logfile="-" | tee -a tripulacio.log
+
+reload-gunicorn:
+	kill -HUP `pgrep gunicorn | head -n 1`
 
 update:
 	git pull || echo "Cannot pull"
@@ -71,5 +74,6 @@ update:
 	pipenv run ./manage.py compilemessages
 	pipenv run ./manage.py migrate
 	pipenv run ./manage.py collectstatic --noinput
+	make reload-gunicorn
 
 .PHONY: init-data clean-data lint run stop test ldap-test
