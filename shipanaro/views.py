@@ -50,7 +50,7 @@ def csv_export(request):
     writer = csv.writer(response)
     writer.writerow(["First Name", "Last Name", "Email Address", "ID", "Active"])
 
-    for member in Membership.objects.filter(drop_out=False):
+    for member in Membership.objects.all():
         writer.writerow(
             [
                 member.user.first_name,
